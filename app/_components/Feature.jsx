@@ -19,7 +19,7 @@ function Feature() {
           <h1 className="text-7xl font-bold gradient-text-h1 leading-tight">
             Pepe Layer <br /> Token
           </h1>
-          <Button className="w-[363px] h-20 p-4 rounded-2xl">
+          <Button className="w-[363px] h-20 p-4 rounded-2xl text-3xl">
             Comming Soon
           </Button>
           <p className="text-lg md:text-xl text-primary-bg-gray">
