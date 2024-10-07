@@ -10,10 +10,10 @@ module.exports = {
       colors: {
         primary: {
           "bg-1": "#064E3B",
-          "bg-gray":"#555"
+          "bg-gray": "#555",
         },
       },
     },
+    plugins: [],
   },
-  plugins: [],
 };
