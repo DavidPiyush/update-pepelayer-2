@@ -103,6 +103,84 @@ body {
     );
     transform: rotate(357deg);
   }
+  .neon-heading {
+    position: relative;
+    background-color: #62ed62;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+    -webkit-text-stroke: 1px #333;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 0, 255, 0.7),
+      0 0 20px rgba(255, 0, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.7),
+      0 0 30px rgba(0, 255, 255, 0.7);
+  }
+  .gradient-card {
+    background: rgba(230, 248, 243, 0.35);
+    box-shadow: 0 4px 8px 0 rgba(31, 135, 90, 0.37);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+  }
+  .heading-h3 {
+    font-size: 36px;
+    background-color: #e1a313;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #000;
+  }
+  .neon-glow {
+    color: #0fc;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+    animation: neon-glow-animation 1.5s ease-in-out infinite;
+    margin: 0;
+    text-align: center;
+    padding: 50px 20px;
+    color: #fff;
+    font-size: 4em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .neon-glow:after {
+    content: "";
+    position: absolute;
+    left: 603px;
+    bottom: 40px;
+    border-radius: 15px;
+    width: 20%;
+    height: 5px;
+    background: linear-gradient(90deg, #f0f, #0ff, #0f0, #0ff, #f0f);
+    background-size: 200% 100%;
+    animation: neon-line-animation 2s linear infinite;
+  }
+  @keyframes neon-line-animation {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes neon-glow-animation {
+    0% {
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+    }
+
+    50% {
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    }
+
+    100% {
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+    }
+  }
 
   .container-div {
     @apply max-w-md md:max-w-2xl lg:max-w-7xl mx-auto;

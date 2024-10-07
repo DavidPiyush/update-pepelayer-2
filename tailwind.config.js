@@ -11,6 +11,8 @@ module.exports = {
         primary: {
           "bg-1": "#064E3B",
           "bg-gray": "#555",
+          "text-grey-1":"#333",
+          "step-color": "#E1A313",
         },
       },
     },
