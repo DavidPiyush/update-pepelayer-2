@@ -27,7 +27,7 @@ export default function Home() {
         />
 
         {/* White Background Layer with Blur */}
-        <div className="absolute inset-0 bg-green-950 opacity-80 backdrop-blur-lg z-10"></div>
+        <div className="absolute inset-0 bg-green-950 opacity-90 backdrop-blur-2xl z-10"></div>
 
         {/* Content (Header and Hero) */}
         <Header />

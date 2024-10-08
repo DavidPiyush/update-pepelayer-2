@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Button from "./Button";
 
-import AboutImg from "@/public/about.jpeg";
+// import AboutImg from "@/public/pepe-About.png";
 
 function About() {
   return (
@@ -21,14 +21,21 @@ function About() {
           </p>
           <Button className="px-24">Join AirDrop</Button>
         </article>
-        <article className="relative h-[600px]">
+        <article className="relative ">
           <img
             src="/about-pattern.png"
             alt=""
             className="absolute top-[-157px]
     right-[100px]"
           />
-          <Image src={AboutImg} alt="about" className="rounded-2xl shadow-lg " quality={50} fill />
+          {/* <div className="relative"> */}
+            {/* <div className="absolute inset-0  gradient-about opacity-50 " /> */}
+            <img
+              src="/About.png"
+              alt="about"
+              className="gradient-about"
+            />
+          {/* </div> */}
         </article>
       </div>
     </section>

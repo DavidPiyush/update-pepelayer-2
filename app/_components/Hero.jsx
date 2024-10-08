@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-// import heroImage from "@/public/hero.jpg"
+
 function Hero() {
   return (
     <section className=" h-[90vh]">
@@ -12,11 +12,11 @@ function Hero() {
       {/* Background Image */}
 
       {/* Content Section */}
-      <div className="relative z-20 flex flex-col md:flex-row items-center  h-full  container-div gap-8">
+      <div className="flex justify-center items-center relative z-50 container-div h-[90vh]">
         {/* Text Content */}
-        <article className="max-w-md text-center md:text-left">
+        <article className=" text-center max-w-5xl ">
           <h1 className="text-5xl md:text-7xl my-12 font-bold heading-primary">
-            PEPE <br /> LAYER 2
+            PEPE  LAYER 2
           </h1>
           <p className="text-lg md:text-xl text-white">
             Pepe Layer2 Memecoin is a cryptocurrency inspired by the popular
@@ -26,7 +26,7 @@ function Hero() {
           </p>
 
           {/* Social Links */}
-          <div className="flex my-12 gap-12 justify-center md:justify-start">
+          <div className="flex my-12 gap-12 justify-center ">
             <Link href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,8 +55,8 @@ function Hero() {
         </article>
 
         {/* Hero Image */}
-        <article className="relative w-full h-[80vh]">
-          {/* <Image
+        {/* <article className="relative w-full h-[80vh]">
+          <Image
             src={heroImage}
             alt="hero image"
             placeholder="blur"
@@ -64,8 +64,8 @@ function Hero() {
             // objectFit="contain"
             quality={80}
             className="object-right object-fit "
-          /> */}
-        </article>
+          />
+        </article> */}
       </div>
     </section>
   );

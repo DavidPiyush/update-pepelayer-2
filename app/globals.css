@@ -181,6 +181,16 @@ body {
       text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
     }
   }
+  .gradient-refer-infoCard {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+  }
+  /* .gradient-about {
+    background: radial-gradient(
+      circle,
+      hsla(284, 80%, 10%, 1) 0%,
+      hsla(290, 25%, 76%, 1) 100%
+    );
+  } */
 
   .container-div {
     @apply max-w-md md:max-w-2xl lg:max-w-7xl mx-auto;
