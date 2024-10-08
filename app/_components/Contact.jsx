@@ -62,7 +62,7 @@ function Contact() {
           </form>
         </article>
         <article className="form-frog">
-          <img src="contact.jpeg" alt />
+          <img src="contact.jpeg" alt='contact jpg' />
         </article>
       </div>
     </section>

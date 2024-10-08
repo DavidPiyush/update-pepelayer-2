@@ -7,7 +7,7 @@ function Roadmap() {
         <div className="timeline-section">
           <div className="timeline">
             <article className="timeline-item">
-              <img src="/roadmap/one.png" alt className="timeline-icon-left" />
+              <img src="/roadmap/one.png" alt='frog image' className="timeline-icon-left" />
               <div className="timeline-content">
                 <h3 className="timeline-date">
                   <span>Phase 1</span>
@@ -32,7 +32,7 @@ function Roadmap() {
             <article className="timeline-item">
               <img
                 src={"/roadmap/two.png"}
-                alt
+                alt='frog image'
                 className="timeline-icon-right "
               />
               <div className="timeline-content">
@@ -55,7 +55,7 @@ function Roadmap() {
             <article className="timeline-item">
               <img
                 src="/roadmap/three.png"
-                alt
+                alt='frog image'
                 className="timeline-icon-left"
               />
               <div className="timeline-content">
@@ -86,7 +86,7 @@ function Roadmap() {
             <article className="timeline-item">
               <img
                 src="/roadmap/four.png"
-                alt
+                alt='frog image'
                 className="timeline-icon-right"
               />
               <div className="timeline-content">
@@ -115,7 +115,7 @@ function Roadmap() {
               </div>
             </article>
             <article className="timeline-item">
-              <img src="/roadmap/six.png" alt className="timeline-icon-left" />
+              <img src="/roadmap/six.png" alt='frog image' className="timeline-icon-left" />
               <div className="timeline-content">
                 <h3 className="timeline-date">
                   <span>Phase 5</span>
@@ -148,19 +148,19 @@ function Roadmap() {
       {/* Bubbles Section */}
       <div className="bubbles">
         <div className="bubble bubble1">
-          <img src="/bubble/one.png" alt className="bubble-size " />
+          <img src="/bubble/one.png" alt='frog image' className="bubble-size " />
         </div>
         <div className="bubble bubble2">
-          <img src="/bubble/three.png" alt className="bubble-size " />
+          <img src="/bubble/three.png" alt='frog image' className="bubble-size " />
         </div>
         <div className="bubble bubble3">
-          <img src="/bubble/four.png" alt className="bubble-size " />
+          <img src="/bubble/four.png" alt='frog image' className="bubble-size " />
         </div>
         <div className="bubble bubble4">
-          <img src="/bubble/five.png" alt className="bubble-size " />
+          <img src="/bubble/five.png" alt='frog image' className="bubble-size " />
         </div>
         <div className="bubble bubble5">
-          <img src="/bubble/six.png" alt className="bubble-size " />
+          <img src="/bubble/two.png" alt='frog image' className="bubble-size " />
         </div>
       </div>
     </section>
@@ -179,7 +179,7 @@ export default Roadmap;
 //       >
 //         <img
 //           src="/first.png"
-//           alt="one"
+//           alt='frog image'="one"
 //           className="w-[50%] p-5 absolute left-[160%] translate-x-[-50%] z-10 drop-shadow-sm"
 //         />
 //         <div className="bg-[#333] relative p-5 shadow-lg w-[80%] rounded-lg z-10 text-white border-[#00ffcc] border-2">

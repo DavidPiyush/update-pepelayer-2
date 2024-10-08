@@ -434,15 +434,7 @@
 .footer-logo-box {
   position: relative;
 }
-
-/* .footer-logo {
-  max-width: max-content;
-  /* max-width: 100%; */
-  /* position: absolute;
-  bottom: -48px;
-} 
- */ */
-.copyright {
+.copyright p {
   color: #fff;
   /* padding: 1px 0; */
   padding-bottom: 12px;
