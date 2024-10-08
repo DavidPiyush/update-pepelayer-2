@@ -5,17 +5,17 @@ function Contact() {
     <section className="mt-24">
       <div className="grid grid-cols-2  ">
         <article className="form-box bg-[#1A1919] flex items-center pl-12 text-white">
-          <form action className="form space-y-8 ">
+          <form  className="form space-y-8 ">
             <input
               type="text"
               placeholder="John"
-              className=" input-field"
+              className="input-field"
               required
             />
             <input
               type="text"
               placeholder="Doe"
-              className=" input-field"
+              className="input-field"
               required
             />
             <input
@@ -23,30 +23,30 @@ function Contact() {
               name="email"
               id="email"
               placeholder="johan@devgmail.com"
-              className=" input-field"
+              className="input-field"
               required
             />
             <input
               type="text"
               placeholder="Share your feedback"
-              className=" input-field"
+              className="input-field"
               required
             />
             <input
               type="text"
               placeholder="Write your query here...."
-              className=" input-field"
+              className="input-field"
               required
             />
             <div className="checkbox-field">
-              <input type="checkbox" name=" " required id />
+              <input type="checkbox"  required />
               <a className="privacy-policy ">
                 By submitting this form you agree to our Terms and Privacy
                 Policy
               </a>
             </div>
             <div className="checkbox-field mt-12">
-              <input type="checkbox" name id required />
+              <input type="checkbox" required />
               <a className="privacy-policy ">
                 Yes, please keep me updated on PEPE news, events and offers.
               </a>
@@ -62,7 +62,7 @@ function Contact() {
           </form>
         </article>
         <article className="form-frog">
-          <img src="contact.jpeg" alt='contact jpg' />
+          <img src="contact.jpeg" alt="contact jpg" />
         </article>
       </div>
     </section>

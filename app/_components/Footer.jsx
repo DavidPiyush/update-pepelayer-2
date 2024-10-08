@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="footer mt-24">
       <div className="container-div grid grid-cols-3 justify-items-center">
-        <div className="">
+        <div>
           <ul className="footer-main-list">
             <li>
               <Link href="#" className="text-white text-base cursor-pointer">
@@ -29,7 +29,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className>
+        <div>
           <ul className="footer-main-list">
             <li>
               <Link href="#" className="text-white text-base cursor-pointer">
@@ -58,7 +58,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className>
+        <div>
           <ul className="footer-main-list">
             <li>
               <Link href="#" className="text-white text-base cursor-pointer">
@@ -78,8 +78,8 @@ function Footer() {
       </div>
       <div className="copyright">
         <p>
-          &copy; {new Date().getFullYear()} Pepe Layer2 Campaign. All rights
-          reserved.
+          &copy; {`${new Date().getFullYear()}`} Pepe Layer2 Campaign. All
+          rights reserved.
         </p>
       </div>
     </footer>
