@@ -1,5 +1,6 @@
-import "@/app/_styles/style.css";
 import Link from "next/link";
+
+import "@/app/_styles/style.css";
 
 function Footer() {
   return (
@@ -8,22 +9,22 @@ function Footer() {
         <div>
           <ul className="footer-main-list">
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 $PEPE Whitepaper
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 Solidproof Certification
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 Coinsult Certification
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 Help Center
               </Link>
             </li>
@@ -32,27 +33,27 @@ function Footer() {
         <div>
           <ul className="footer-main-list">
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 User Agreement
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 Privacy &amp; Cookies
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 Risk Advisory
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 Disclaimer
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 User Commitments
               </Link>
             </li>
@@ -61,12 +62,12 @@ function Footer() {
         <div>
           <ul className="footer-main-list">
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 Twitter
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-white text-base cursor-pointer">
+              <Link href="/" className="text-white text-base cursor-pointer">
                 Telegram
               </Link>
             </li>

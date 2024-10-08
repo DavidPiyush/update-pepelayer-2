@@ -341,14 +341,7 @@
   align-items: center;
   gap: 14px;
 }
-/* 
-.form-frog img {
-  /* margin-left: 104px; */
-  /* margin-top: 34px; */
-  /* filter: drop-shadow(0 0 3px rgba(74, 144, 226, 0.8))
-    drop-shadow(0 0 8px rgba(74, 144, 226, 0.8));
-  animation: blinks 1s infinite; */
-/* } */ */
+
 
 .section-form {
   background-color: #bc8f8f;
