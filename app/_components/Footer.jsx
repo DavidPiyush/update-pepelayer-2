@@ -1,83 +1,86 @@
 import "@/app/_styles/style.css";
+import Link from "next/link";
 
 function Footer() {
   return (
     <footer className="footer mt-24">
       <div className="container-div grid grid-cols-3 justify-items-center">
-        <div className =''>
+        <div className="">
           <ul className="footer-main-list">
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 $PEPE Whitepaper
-              </a>
+              </Link>
             </li>
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 Solidproof Certification
-              </a>
+              </Link>
             </li>
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 Coinsult Certification
-              </a>
+              </Link>
             </li>
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 Help Center
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className>
           <ul className="footer-main-list">
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 User Agreement
-              </a>
+              </Link>
             </li>
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 Privacy &amp; Cookies
-              </a>
+              </Link>
             </li>
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 Risk Advisory
-              </a>
+              </Link>
             </li>
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 Disclaimer
-              </a>
+              </Link>
             </li>
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 User Commitments
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className>
           <ul className="footer-main-list">
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 Twitter
-              </a>
+              </Link>
             </li>
             <li>
-              <a href className="text-white text-base cursor-pointer">
+              <Link href="#" className="text-white text-base cursor-pointer">
                 Telegram
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         {/* <div className="footer-logo-box">
-          <img src='/logo.png' alt className="footer-logo" />
-        </div> */}
+      <img src='/logo.png' alt className="footer-logo" />
+    </div> */}
       </div>
-
       <div className="copyright">
-        <p>&copy; {new Date().getFullYear()} Pepe Layer2 Campaign. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} Pepe Layer2 Campaign. All rights
+          reserved.
+        </p>
       </div>
     </footer>
   );
