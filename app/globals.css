@@ -60,7 +60,7 @@ body {
   .heading-primary {
     /* font-size: 64px; */
     /* text-transform: uppercase; */
-    background: linear-gradient(0deg, #f6fff2, #c3ffa9);
+    background: linear-gradient(0deg, #f6fff2, #e1a313);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

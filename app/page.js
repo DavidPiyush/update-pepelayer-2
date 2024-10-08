@@ -10,7 +10,7 @@ import Hero from "./_components/Hero";
 import JoinAirdrop from "./_components/JoinAirdrop";
 import Refer from "./_components/Refer";
 import Roadmap from "./_components/Roadmap";
-import bgImage from "@/public/hero-bg-1.jpg";
+import bgImage from "@/public/home.jpg";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
         />
 
         {/* White Background Layer with Blur */}
-        <div className="absolute inset-0 bg-black opacity-80 backdrop-blur-3xl z-10"></div>
+        {/* <div className="absolute inset-0 bg-black opacity-80 backdrop-blur-3xl z-10"></div> */}
 
         {/* Content (Header and Hero) */}
         <Header />

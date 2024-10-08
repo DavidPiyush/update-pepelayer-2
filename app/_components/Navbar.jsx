@@ -13,7 +13,6 @@ function Navbar() {
       <ul className="flex gap-12 items-center">
         {pathname === "/" && (
           <>
-            {" "}
             <li>
               <Link href="#" className="nav-link">
                 TOKENOMICS
@@ -30,10 +29,11 @@ function Navbar() {
               </Link>
             </li>
             <Button className={"px-10"}>
-              <Link href="/airDrop">JOIN AIRDROP</Link>
+              <Link href="/buy">Buy Now</Link>
             </Button>
           </>
         )}
+
         {pathname === "/airDrop" && (
           <>
             <li>
@@ -46,6 +46,23 @@ function Navbar() {
                 Roadmap
               </Link>
             </li>
+          </>
+        )}
+        {pathname === "/buy" && (
+          <>
+            <li>
+              <Link href="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="#roadmap" className="nav-link">
+                Roadmap
+              </Link>
+            </li>
+            <Button className={"px-10"}>
+              <Link href="/buy">connect to metamask</Link>
+            </Button>
           </>
         )}
       </ul>
