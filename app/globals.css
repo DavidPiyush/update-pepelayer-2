@@ -117,8 +117,8 @@ body {
       0 0 30px rgba(0, 255, 255, 0.7);
   }
   .gradient-card {
-    background: rgba(230, 248, 243, 0.35);
-    box-shadow: 0 4px 8px 0 rgba(31, 135, 90, 0.37);
+    background: #302e2e;
+    box-shadow: 0 4px 8px 0 rgba(33, 42, 38, 0.8);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;

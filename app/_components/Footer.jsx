@@ -77,7 +77,7 @@ function Footer() {
       </div>
 
       <div className="copyright">
-        <p>&copy; 2024 Pepe Layer2 Campaign. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Pepe Layer2 Campaign. All rights reserved.</p>
       </div>
     </footer>
   );

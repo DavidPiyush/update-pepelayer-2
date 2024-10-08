@@ -4,7 +4,7 @@ function Contact() {
   return (
     <section className="mt-24">
       <div className="grid grid-cols-2  ">
-        <article className="form-box bg-[#bc8f8f] flex items-center pl-12">
+        <article className="form-box bg-[#1A1919] flex items-center pl-12 text-white">
           <form action className="form space-y-8 ">
             <input
               type="text"
@@ -52,7 +52,10 @@ function Contact() {
               </a>
             </div>
             <div className="t-center">
-              <Button type="submit" className="btn send-me rounded-2xl px-[200px]">
+              <Button
+                type="submit"
+                className="btn send-me rounded-2xl px-[200px]"
+              >
                 Send
               </Button>
             </div>

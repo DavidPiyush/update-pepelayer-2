@@ -3,15 +3,15 @@ function Community() {
   return (
     <section className="mt-24">
       <div className="container-div">
-        <div className=" border-2 border-black text-center bg-[#e2e2b6] rounded-3xl p-8">
+        <div className=" border-2 border-black text-center bg-[#1A1919] rounded-3xl p-8">
           <h2 className="secondary-heading mb-24 ">Stay in the Loop!</h2>
-          <p className="text-lg md:text-xl text-primary-bg-gray">
+          <p className="text-lg md:text-xl text-white">
             Become part of the $PEPE family—follow us for the latest updates,
             exclusive content, and vibrant discussions. Dive in and connect with
             like-minded enthusiasts today!
           </p>
           <div className="community-section">
-            <p>Join Our Pepecoin Community today!</p>
+            <p className='text-white'>Join Our Pepecoin Community today!</p>
             <div className="icon-wrapper">
               <i className="fab fa-reddit main-icon" />
             </div>

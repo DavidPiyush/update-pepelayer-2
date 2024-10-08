@@ -6,13 +6,13 @@ import AboutImg from "@/public/about.jpeg";
 
 function About() {
   return (
-    <section className="mt-24">
+    <section className="my-24">
       <div className="container-div grid grid-cols-2 gap-12 items-center ">
         <article className="space-y-10">
           <h2 className="text-6xl font-bold neon-heading leading-tight uppercase">
             About $pepe
           </h2>
-          <p className="text-lg  text-primary-bg-gray">
+          <p className="text-lg  text-[#eee]">
             Introducing $PEPE: The ultimate meme coin with a colossal supply of
             100 billion tokens. Our token features 65% liquidity locked for one
             year for unmatched stability and a 5% transaction tax to fuel

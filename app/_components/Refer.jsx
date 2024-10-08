@@ -1,6 +1,6 @@
 function Refer() {
   return (
-    <section className="mt-24 bg-[#03346e] ">
+    <section className="mt-24 bg-[#1A1919] ">
       <div className="grid grid-cols-2 gap-16 py-12">
         <article>
           <img src="/refer.jpeg" alt="refer image" className="rounded-e-2xl" />

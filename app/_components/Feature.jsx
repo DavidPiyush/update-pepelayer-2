@@ -22,7 +22,7 @@ function Feature() {
           <Button className="w-[363px] h-20 p-4 rounded-2xl text-3xl">
             Comming Soon
           </Button>
-          <p className="text-lg md:text-xl text-primary-bg-gray">
+          <p className="text-lg md:text-xl text-[#eee]">
             Stay tuned for something amazing!
           </p>
         </div>
