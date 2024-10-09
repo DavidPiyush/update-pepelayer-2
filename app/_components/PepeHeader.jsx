@@ -9,19 +9,19 @@ function PepeHeader() {
             <p
               className="h-12 w-32 bg-black text-white flex justify-center items-center rounded-xl"
               id="days"
-            ></p>
+            >0</p>
             <p
               className="h-12 w-32 bg-black text-white flex justify-center items-center rounded-xl"
               id="hours"
-            ></p>
+            >0</p>
             <p
               className="h-12 w-32 bg-black text-white flex justify-center items-center rounded-xl"
               id="minutes"
-            ></p>
+            >0</p>
             <p
               className="h-12 w-32 bg-black text-white flex justify-center items-center rounded-xl"
               id="seconds"
-            ></p>
+            >0</p>
           </article>
           <p className="text-zinc-600 text-center text-base py-1">
             until next price will increased

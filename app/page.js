@@ -10,35 +10,18 @@ import Hero from "./_components/Hero";
 import JoinAirdrop from "./_components/JoinAirdrop";
 import Refer from "./_components/Refer";
 import Roadmap from "./_components/Roadmap";
-import bgImage from "@/public/home.jpg";
 
 export default function Home() {
   return (
-    <main className="bg-[#000]">
-        <Header />
-      <section className="relative z-20">
-        {/* Background Image */}
-        <Image
-          fill
-          src={bgImage}
-          alt="money-background"
-          placeholder="blur"
-          quality={50}
-          className="object-cover object-top"
-        />
 
-        {/* White Background Layer with Blur */}
-        {/* <div className="absolute inset-0 bg-black opacity-80 backdrop-blur-3xl z-10"></div> */}
-
-        {/* Content (Header and Hero) */}
-        <Hero />
-      </section>
-
+    <main className="bg-[#000] overflow-hidden overflow-x-hidden">
+      <Header />
+      <Hero />
       <Feature />
       <About />
       <Roadmap />
       <JoinAirdrop />
-      <Refer />
+      {/* <Refer /> */}
       <Community />
       <Contact />
       <Footer />

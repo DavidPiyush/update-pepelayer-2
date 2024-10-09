@@ -1,12 +1,24 @@
+'use client'
 import Link from "next/link";
+import AOS from "aos"; // Import AOS
+import "aos/dist/aos.css"; // Import AOS styles
+import { useEffect } from "react"; // Import useEffect
 
 import "@/app/_styles/style.css";
 
 function Footer() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200, // Animation duration in ms
+    });
+  }, []);
+
   return (
     <footer className="footer mt-24">
       <div className="container-div grid grid-cols-3 justify-items-center">
-        <div>
+        <div data-aos="fade-up">
+          {" "}
+          {/* Add fade-up animation to the first column */}
           <ul className="footer-main-list">
             <li>
               <Link href="/" className="text-white text-base cursor-pointer">
@@ -30,7 +42,9 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div data-aos="fade-up">
+          {" "}
+          {/* Add fade-up animation to the second column */}
           <ul className="footer-main-list">
             <li>
               <Link href="/" className="text-white text-base cursor-pointer">
@@ -59,7 +73,9 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div data-aos="fade-up">
+          {" "}
+          {/* Add fade-up animation to the third column */}
           <ul className="footer-main-list">
             <li>
               <Link href="/" className="text-white text-base cursor-pointer">
@@ -73,11 +89,10 @@ function Footer() {
             </li>
           </ul>
         </div>
-        {/* <div className="footer-logo-box">
-      <img src='/logo.png' alt className="footer-logo" />
-    </div> */}
       </div>
-      <div className="copyright">
+      <div className="copyright" data-aos="fade-up">
+        {" "}
+        {/* Add fade-up animation to the copyright section */}
         <p>
           &copy; {`${new Date().getFullYear()}`} Pepe Layer2 Campaign. All
           rights reserved.

@@ -1,20 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
+import bgImage from "@/public/pepe-home.png";
 
 function Hero() {
   return (
-    <section className=" h-[90vh]">
-      {/* Green overlay */}
-      {/* <div className="absolute inset-0 bg-green-950 opacity-50 z-10"></div> */}
-
+    <section className="h-[90vh] relative">
       {/* Background Image */}
+      <Image
+        fill
+        src={bgImage}
+        alt="money-background"
+        placeholder="blur"
+        quality={50}
+        className=""
+      />
 
       {/* Content Section */}
-      <div className=" relative z-10  h-[90vh]">
+      <div className=" relative   h-[90vh]">
         {/* Text Content */}
-        <article className="w-full grid justify-end p-5">
+        <article className="w-full grid justify-end p-5 pt-24 ">
           <h1 className="text-5xl md:text-7xl my-12 font-bold heading-primary text-left ">
             PEPE LAYER 2
           </h1>

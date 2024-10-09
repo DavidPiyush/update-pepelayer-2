@@ -196,7 +196,7 @@ body {
     font-size: 3em;
     margin: 0 10px;
     fill: #ccc;
-    stroke:#ccc;
+    stroke: #ccc;
     /* Dark gray for icons */
     transition: color 0.3s ease, transform 0.3s ease;
     margin-top: 14px;
@@ -208,6 +208,78 @@ body {
     /* Orange highlight on hover */
     transform: scale(1.2);
     /* Enlarge icon on hover */
+  }
+
+  .spinner {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    border: 4.5px solid #0000;
+    border-radius: 50%;
+    border-color: #06b482 #0000;
+    animation: spinner-e04l1k 1s infinite linear;
+  }
+
+  .spinner::before,
+  .spinner::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 2.2px;
+    border: inherit;
+    border-radius: 50%;
+  }
+
+  .spinner::before {
+    border-color: #e1a313 #0000;
+    animation: inherit;
+    animation-duration: 0.5s;
+    animation-direction: reverse;
+  }
+
+  .spinner::after {
+    margin: 8.9px;
+  }
+
+  @keyframes spinner-e04l1k {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+
+  .mini-spinner {
+    width: 24px;
+    height: 24px;
+    display: grid;
+    border: 1.9px solid #0000;
+    border-radius: 50%;
+    border-color: #06b482 #0000;
+    animation: mini-spinner-e04l1k 1s infinite linear;
+  }
+
+  .mini-spinner::before,
+  .mini-spinner::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 1px;
+    border: inherit;
+    border-radius: 50%;
+  }
+
+  .mini-spinner::before {
+    border-color: #e1a313 #0000;
+    animation: inherit;
+    animation-duration: 0.5s;
+    animation-direction: reverse;
+  }
+
+  .mini-spinner::after {
+    margin: 3.9px;
+  }
+
+  @keyframes mini-spinner-e04l1k {
+    100% {
+      transform: rotate(1turn);
+    }
   }
 
   .container-div {

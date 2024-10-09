@@ -1,14 +1,28 @@
-import "@/app/_styles/style.css"
+"use client";
+import "@/app/_styles/style.css";
+import AOS from "aos"; // Import AOS
+import "aos/dist/aos.css"; // Import AOS styles
+import { useEffect } from "react";
+
 function Roadmap() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1200, // Animation duration in ms
+    });
+  }, []);
+
   return (
     <section className="roadmaps">
       <div className="container">
-        <h2 className="text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12">
+        <h2
+          className="text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12"
+          data-aos="fade-left"
+        >
           Roadmap
         </h2>
         <div className="timeline-section">
           <div className="timeline">
-            <article className="timeline-item">
+            <article className="timeline-item" data-aos="fade-left">
               <img
                 src="/roadmap/one.png"
                 alt="frog image"
@@ -35,7 +49,8 @@ function Roadmap() {
                 </h3>
               </div>
             </article>
-            <article className="timeline-item">
+
+            <article className="timeline-item" data-aos="fade-left">
               <img
                 src={"/roadmap/two.png"}
                 alt="frog image"
@@ -58,7 +73,8 @@ function Roadmap() {
                 </h3>
               </div>
             </article>
-            <article className="timeline-item">
+
+            <article className="timeline-item" data-aos="fade-left">
               <img
                 src="/roadmap/three.png"
                 alt="frog image"
@@ -69,7 +85,7 @@ function Roadmap() {
                   <span>Phase 3</span>
                 </h3>
                 <h3 className="timeline-date">
-                  <span>•</span> Marketing and infulancers campaign
+                  <span>•</span> Marketing and influencers campaign
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
@@ -89,7 +105,8 @@ function Roadmap() {
                 </h3>
               </div>
             </article>
-            <article className="timeline-item">
+
+            <article className="timeline-item" data-aos="fade-left">
               <img
                 src="/roadmap/four.png"
                 alt="frog image"
@@ -104,7 +121,7 @@ function Roadmap() {
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Our PLayerTAP Launch Game
+                  Our PlayerTAP Launch Game
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
@@ -120,7 +137,8 @@ function Roadmap() {
                 </h3>
               </div>
             </article>
-            <article className="timeline-item">
+
+            <article className="timeline-item" data-aos="fade-left">
               <img
                 src="/roadmap/six.png"
                 alt="frog image"
@@ -135,7 +153,7 @@ function Roadmap() {
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Airdrop for game users .
+                  Airdrop for game users.
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
@@ -143,7 +161,7 @@ function Roadmap() {
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Infulancers Campaign
+                  Influencers Campaign
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
@@ -198,32 +216,3 @@ function Roadmap() {
 }
 
 export default Roadmap;
-
-// <section className="mt-24 bg-black">
-//   <h2 className="neon-glow">Roadmap</h2>
-//   <div className="container-div">
-//     <div className="timeline">
-//       <article
-//         className="relative my-12 flex justify-center items-center   rounded-xl py-5 w-[50%] 
-//        "
-//       >
-//         <img
-//           src="/first.png"
-//           alt='frog image'="one"
-//           className="w-[50%] p-5 absolute left-[160%] translate-x-[-50%] z-10 drop-shadow-sm"
-//         />
-//         <div className="bg-[#333] relative p-5 shadow-lg w-[80%] rounded-lg z-10 text-white border-[#00ffcc] border-2">
-//           <h3 className="text-3xl uppercase font-semibold  text-left title">
-//             Phase 1
-//           </h3>
-//           <ul className="list-disc ml-6 space-y-2 mt-1 text-[#00ffcc]">
-//             <li>Building team</li>
-//             <li>Website launch</li>
-//             <li>Airdrop launch</li>
-//             <li>Huge marketing campaign</li>
-//           </ul>
-//         </div>
-//       </article>
-//     </div>
-//   </div>
-// </section>
