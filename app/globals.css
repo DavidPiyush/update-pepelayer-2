@@ -210,41 +210,56 @@ body {
     /* Enlarge icon on hover */
   }
 
-  .spinner {
-    width: 56px;
-    height: 56px;
-    display: grid;
-    border: 4.5px solid #0000;
-    border-radius: 50%;
-    border-color: #06b482 #0000;
-    animation: spinner-e04l1k 1s infinite linear;
-  }
+ /* Loader CSS */
+.loader {
+  position: fixed; /* Fixed positioning to cover the viewport */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 9999; /* Make sure it appears on top */
+}
 
-  .spinner::before,
-  .spinner::after {
-    content: "";
-    grid-area: 1/1;
-    margin: 2.2px;
-    border: inherit;
-    border-radius: 50%;
-  }
+.spinner {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  border: 4.5px solid #0000;
+  border-radius: 50%;
+  border-color: #06b482 #0000;
+  animation: spinner-e04l1k 1s infinite linear;
+}
 
-  .spinner::before {
-    border-color: #e1a313 #0000;
-    animation: inherit;
-    animation-duration: 0.5s;
-    animation-direction: reverse;
-  }
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2.2px;
+  border: inherit;
+  border-radius: 50%;
+}
 
-  .spinner::after {
-    margin: 8.9px;
-  }
+.spinner::before {
+  border-color: #e1a313 #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
 
-  @keyframes spinner-e04l1k {
-    100% {
-      transform: rotate(1turn);
-    }
+.spinner::after {
+  margin: 8.9px;
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
   }
+}
+
 
   .mini-spinner {
     width: 24px;

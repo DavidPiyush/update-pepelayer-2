@@ -1,5 +1,12 @@
 import Spinner from "@/app/_components/Spinner";
 
-export default function Loading() {
-  return <Spinner />;
-}
+
+const Loader = () => {
+  return (
+    <div className="loader">
+      <Spinner/>
+    </div>
+  );
+};
+
+export default Loader;
