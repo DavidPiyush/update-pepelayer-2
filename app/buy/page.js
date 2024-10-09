@@ -3,6 +3,7 @@ import Image from "next/image";
 import BuyNow from "../_components/BuyNow";
 import Header from "../_components/Header";
 import galaxy from "@/public/galaxy.png";
+import { Toaster } from "react-hot-toast";
 
 function page() {
   return (
@@ -22,6 +23,7 @@ function page() {
         <Header />
         <BuyNow />
       </section>
+      <Toaster />
     </main>
   );
 }

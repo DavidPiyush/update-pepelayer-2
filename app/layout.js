@@ -1,7 +1,12 @@
 import "./globals.css";
-import {Poppins} from 'next/font/google'
+import { Poppins } from "next/font/google";
+
+//Rainbowkit
+import Providers from "@/app/_context/Provider";
+import "@rainbow-me/rainbowkit/styles.css";
 
 import Header from "./_components/Header";
+import ToasterContext from "./_context/ToasterContext";
 
 
 // font family
@@ -10,7 +15,6 @@ const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
 });
-
 
 export const metadata = {
   title: {
@@ -25,8 +29,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-      
-        {children}
+        <Providers>
+          <ToasterContext />
+          {children}
+        </Providers>
       </body>
     </html>
   );

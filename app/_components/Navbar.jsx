@@ -1,7 +1,9 @@
 "use client";
 import Link from "next/link";
-import Button from "./Button";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { usePathname } from "next/navigation";
+
+import Button from "./Button";
 
 function Navbar() {
   const pathname = usePathname();
@@ -60,9 +62,7 @@ function Navbar() {
                 Roadmap
               </Link>
             </li>
-            <Button className={"px-10"}>
-              <Link href="/buy">connect to metamask</Link>
-            </Button>
+            <ConnectButton />
           </>
         )}
       </ul>
