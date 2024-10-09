@@ -2,13 +2,13 @@ import Image from "next/image";
 
 import { cardData } from "../_data/card";
 import Button from "./Button";
-import cardImage from '@/public/card.jpg'
+// import cardImage from '@/public/how-pattern.png'
 
 function JoinAirdrop() {
   return (
-    <section className="my-24 relative ">
-      <h2 className="text-6xl font-bold neon-heading leading-tight uppercase text-center py-12">
-        How to join AirDrop
+    <section className="my-24 relative "id='how'>
+      <h2 className="text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12">
+        How to Buy
       </h2>
 
       {/* <div className="absolute inset-0 bg-[#052e16] opacity-80 backdrop-blur-lg z-10"></div> */}

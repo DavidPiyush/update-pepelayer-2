@@ -15,7 +15,8 @@ import bgImage from "@/public/home.jpg";
 export default function Home() {
   return (
     <main className="bg-[#000]">
-      <section className="relative z-50">
+        <Header />
+      <section className="relative z-20">
         {/* Background Image */}
         <Image
           fill
@@ -30,7 +31,6 @@ export default function Home() {
         {/* <div className="absolute inset-0 bg-black opacity-80 backdrop-blur-3xl z-10"></div> */}
 
         {/* Content (Header and Hero) */}
-        <Header />
         <Hero />
       </section>
 

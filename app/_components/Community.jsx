@@ -1,4 +1,13 @@
 import "@/app/_styles/style.css";
+import {
+  IoBarChartOutline,
+  IoLogoBitcoin,
+  IoLogoDiscord,
+  IoLogoGithub,
+  IoLogoReddit,
+  IoLogoTwitter,
+} from "react-icons/io5";
+import { BsTelegram } from "react-icons/bs";
 function Community() {
   return (
     <section className="mt-24">
@@ -11,19 +20,15 @@ function Community() {
             like-minded enthusiasts today!
           </p>
           <div className="community-section">
-            <p className='text-white'>Join Our Pepecoin Community today!</p>
-            <div className="icon-wrapper">
-              <i className="fab fa-reddit main-icon" />
-            </div>
-            <div className="social-icons">
-              <i className="fab fa-github" />
-              <i className="fab fa-telegram-plane" />
-              <i className="fab fa-discord" />
-              <i className="fab fa-x-twitter" />
-              <i className="fas fa-coins" />
-              <i className="fas fa-chart-line" />
-              <i className="fas fa-frog" />
-              <i className="fas fa-exchange-alt" />
+            <p className="text-white">Join Our Pepecoin Community today!</p>
+            <div className="social-icons flex justify-center items-center">
+              <IoLogoReddit />
+              <IoLogoGithub />
+              <BsTelegram />
+              <IoLogoDiscord />
+              <IoLogoTwitter />
+              <IoLogoBitcoin />
+              <IoBarChartOutline />
             </div>
           </div>
         </div>

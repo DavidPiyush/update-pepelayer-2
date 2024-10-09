@@ -8,7 +8,6 @@ import "@rainbow-me/rainbowkit/styles.css";
 import Header from "./_components/Header";
 import ToasterContext from "./_context/ToasterContext";
 
-
 // font family
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -28,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} scroll-smooth`}>
         <Providers>
           <ToasterContext />
           {children}

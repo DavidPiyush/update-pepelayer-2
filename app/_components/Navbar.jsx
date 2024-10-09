@@ -1,15 +1,13 @@
 "use client";
 import Link from "next/link";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { usePathname } from "next/navigation";
+import { toast } from "react-hot-toast"; // Import toast for notifications
 
 import Button from "./Button";
 
 function Navbar() {
   const pathname = usePathname();
-
-  console.log(pathname);
-
   return (
     <nav className="">
       <ul className="flex gap-12 items-center">
@@ -50,6 +48,7 @@ function Navbar() {
             </li>
           </>
         )}
+
         {pathname === "/buy" && (
           <>
             <li>

@@ -102,7 +102,12 @@ const Providers = ({ children }) => {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider modalSize="wide" chains theme={darkTheme()}>
+        <RainbowKitProvider
+          modalSize="wide"
+          chains
+          theme={darkTheme()}
+          showRecentTransactions={true}
+        >
           {children}
         </RainbowKitProvider>
       </QueryClientProvider>

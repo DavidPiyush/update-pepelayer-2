@@ -1,60 +1,84 @@
 "use client";
-import { useState } from "react";
-import { useSendTransaction } from "wagmi";
+import { useState, useEffect } from "react";
+import { useSendTransaction, useWaitForTransactionReceipt } from "wagmi"; // Import wait for receipt
 import { parseEther } from "viem";
-import toast, { Toaster } from "react-hot-toast"; // Ensure correct import
+import toast, { Toaster } from "react-hot-toast";
 
 import Button from "./Button";
 import Input from "./Input";
 import Select from "./Select";
 import { calculatePepeCoinAmount } from "@/app/_utlis/convertEtherToPepe";
+import timerFunction from "../_utlis/timer";
 
 function Exchange() {
   const [inputValue, setInputValue] = useState("");
   const [pepeCoinAmount, setPepeCoinAmount] = useState(null);
-  const [loading, setLoading] = useState(false); // Track loading state
-  const { sendTransaction, isPending, isSuccess, error } = useSendTransaction();
+  const [loading, setLoading] = useState(false);
+
+  const { sendTransaction, isPending, error: sendError } = useSendTransaction();
+
+  // Use the wait for transaction receipt hook
+  const {
+    // data: transactionHash,
+    isSuccess: isConfirmed,
+    error: receiptError,
+  } = useWaitForTransactionReceipt();
+
+  useEffect(() => {
+    timerFunction(); // Call the timer function
+  }, []);
 
   // Handle input change for ETH amount
-  function handleInputChange(e, name) {
+  function handleInputChange(e) {
     const { value } = e.target;
     setInputValue(value);
 
-    if (name === "amount") {
-      const validNumber = value !== "" && !isNaN(Number(value));
-
-      if (validNumber) {
-        const pepeAmount = calculatePepeCoinAmount(Number(value));
-        setPepeCoinAmount(pepeAmount);
-      } else {
-        setPepeCoinAmount(null);
-      }
-    }
+    const validNumber = value !== "" && !isNaN(Number(value));
+    setPepeCoinAmount(
+      validNumber ? calculatePepeCoinAmount(Number(value)) : null
+    );
   }
 
   // Handle sending the transaction
   async function handleSendTransaction() {
+    if (!inputValue) {
+      toast.error("Please enter a valid amount.");
+      return;
+    }
+
     try {
       setLoading(true); // Start loading
-
-      const transaction = sendTransaction({
+      const transaction =  sendTransaction({
         to: "0xD53f30a45Bb3F338e6a0Cf1ee6E6Fb0303FCAb70",
         value: parseEther(inputValue),
       });
-      if (isSuccess) {
-        toast.success("Transaction successful!"); // Show success toast
+
+      if (transaction) {
+        toast.success("Transaction sent! Waiting for confirmation..."); // Notify user of transaction sent
       }
     } catch (err) {
-      // Check if the user rejected the transaction
-      toast.error("Transaction failed. Please try again.");
-
-      console.error("Transaction failed:", err);
+      if (sendError) {
+        toast.error("Transaction failed. Please try again."); // General error
+        console.error("Transaction failed:", sendError);
+      } else {
+        toast.error("Unexpected error occurred."); // Handle unexpected errors
+      }
     } finally {
       setLoading(false); // End loading
     }
   }
 
-  
+  // Handle success or receipt errors
+  useEffect(() => {
+    if (isConfirmed) {
+      toast.success("Transaction confirmed!"); // Notify success on confirmation
+    }
+    if (receiptError) {
+      toast.error(`Error confirming transaction: ${receiptError.message}`); // Handle receipt error
+      console.error("Receipt error:", receiptError);
+    }
+  }, [isConfirmed, receiptError]);
+
   return (
     <article className="mt-4 bg-[#000] p-4 rounded-lg">
       <div className="flex flex-row flex-1 mb-2 gap-4 bg-black p-2 rounded-lg">
@@ -83,25 +107,16 @@ function Exchange() {
           <label htmlFor="" className="text-[#ccc] text-sx text-left mb-2">
             You get
           </label>
-          <p
-            className="text-base bg-[#333] rounded-sm h-10 text-white p-2 py-2"
-            id="pepe-coin"
-          >
-            {Number(pepeCoinAmount) > 0
-              ? Number(pepeCoinAmount).toFixed(2)
-              : ""}
+          <p className="text-base bg-[#333] rounded-sm h-10 text-white p-2 py-2">
+            {pepeCoinAmount !== null ? Number(pepeCoinAmount).toFixed(2) : ""}
           </p>
         </div>
       </div>
-
-      {/* Display error message directly in case of any issues */}
-      {/* {error && toast.error("Transaction rejected by the user.")} */}
-
       <Button
         type="button"
         className="w-full focus:outline-none text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
         onClick={handleSendTransaction}
-        disabled={loading || isPending} // Disable button when loading
+        disabled={loading || isPending}
       >
         {loading || isPending ? (
           <span className="flex items-center justify-center">
@@ -131,9 +146,7 @@ function Exchange() {
           "Buy And Stake Pepe Coin"
         )}
       </Button>
-
-      {/* Include the Toaster component to display notifications */}
-      <Toaster />
+      <Toaster /> {/* Include the Toaster component */}
     </article>
   );
 }

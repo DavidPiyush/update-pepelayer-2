@@ -12,7 +12,7 @@ function Hero() {
       {/* Background Image */}
 
       {/* Content Section */}
-      <div className=" relative z-50  h-[90vh]">
+      <div className=" relative z-10  h-[90vh]">
         {/* Text Content */}
         <article className="w-full grid justify-end p-5">
           <h1 className="text-5xl md:text-7xl my-12 font-bold heading-primary text-left ">

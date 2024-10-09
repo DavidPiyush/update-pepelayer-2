@@ -192,6 +192,24 @@ body {
     );
   } */
 
+  .social-icons svg {
+    font-size: 3em;
+    margin: 0 10px;
+    fill: #ccc;
+    stroke:#ccc;
+    /* Dark gray for icons */
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-top: 14px;
+  }
+
+  .social-icons svg:hover {
+    fill: #ff5700;
+    stroke: #ff5700;
+    /* Orange highlight on hover */
+    transform: scale(1.2);
+    /* Enlarge icon on hover */
+  }
+
   .container-div {
     @apply max-w-md md:max-w-2xl lg:max-w-7xl mx-auto;
   }

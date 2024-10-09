@@ -3,11 +3,17 @@ function Roadmap() {
   return (
     <section className="roadmaps">
       <div className="container">
-        <h2 className="roadmap-title neon-glow ">Roadmap</h2>
+        <h2 className="text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12">
+          Roadmap
+        </h2>
         <div className="timeline-section">
           <div className="timeline">
             <article className="timeline-item">
-              <img src="/roadmap/one.png" alt='frog image' className="timeline-icon-left" />
+              <img
+                src="/roadmap/one.png"
+                alt="frog image"
+                className="timeline-icon-left"
+              />
               <div className="timeline-content">
                 <h3 className="timeline-date">
                   <span>Phase 1</span>
@@ -32,7 +38,7 @@ function Roadmap() {
             <article className="timeline-item">
               <img
                 src={"/roadmap/two.png"}
-                alt='frog image'
+                alt="frog image"
                 className="timeline-icon-right "
               />
               <div className="timeline-content">
@@ -55,7 +61,7 @@ function Roadmap() {
             <article className="timeline-item">
               <img
                 src="/roadmap/three.png"
-                alt='frog image'
+                alt="frog image"
                 className="timeline-icon-left"
               />
               <div className="timeline-content">
@@ -86,7 +92,7 @@ function Roadmap() {
             <article className="timeline-item">
               <img
                 src="/roadmap/four.png"
-                alt='frog image'
+                alt="frog image"
                 className="timeline-icon-right"
               />
               <div className="timeline-content">
@@ -115,7 +121,11 @@ function Roadmap() {
               </div>
             </article>
             <article className="timeline-item">
-              <img src="/roadmap/six.png" alt='frog image' className="timeline-icon-left" />
+              <img
+                src="/roadmap/six.png"
+                alt="frog image"
+                className="timeline-icon-left"
+              />
               <div className="timeline-content">
                 <h3 className="timeline-date">
                   <span>Phase 5</span>
@@ -148,19 +158,39 @@ function Roadmap() {
       {/* Bubbles Section */}
       <div className="bubbles">
         <div className="bubble bubble1">
-          <img src="/bubble/one.png" alt='frog image' className="bubble-size " />
+          <img
+            src="/bubble/one.png"
+            alt="frog image"
+            className="bubble-size "
+          />
         </div>
         <div className="bubble bubble2">
-          <img src="/bubble/three.png" alt='frog image' className="bubble-size " />
+          <img
+            src="/bubble/three.png"
+            alt="frog image"
+            className="bubble-size "
+          />
         </div>
         <div className="bubble bubble3">
-          <img src="/bubble/four.png" alt='frog image' className="bubble-size " />
+          <img
+            src="/bubble/four.png"
+            alt="frog image"
+            className="bubble-size "
+          />
         </div>
         <div className="bubble bubble4">
-          <img src="/bubble/five.png" alt='frog image' className="bubble-size " />
+          <img
+            src="/bubble/five.png"
+            alt="frog image"
+            className="bubble-size "
+          />
         </div>
         <div className="bubble bubble5">
-          <img src="/bubble/two.png" alt='frog image' className="bubble-size " />
+          <img
+            src="/bubble/two.png"
+            alt="frog image"
+            className="bubble-size "
+          />
         </div>
       </div>
     </section>
