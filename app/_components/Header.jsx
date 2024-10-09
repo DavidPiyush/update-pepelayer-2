@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 function Header({ className }) {
   return (
     <header
-      className={`sticky top-0 z-50 bg-[#1c1c25d9] shadow-md ${className} relative`}
+      className={` ${className}  z-50 relative transition-all duration-300 `} id="header-el"
     >
       <div className="flex justify-between items-center max-w-md md:max-w-2xl lg:max-w-7xl mx-auto px-8 py-5">
         <Logo />

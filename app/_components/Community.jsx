@@ -7,7 +7,9 @@ import {
   IoBarChartOutline,
   IoLogoBitcoin,
   IoLogoDiscord,
+  IoLogoFacebook,
   IoLogoGithub,
+  IoLogoInstagram,
   IoLogoReddit,
   IoLogoTwitter,
 } from "react-icons/io5";
@@ -37,14 +39,17 @@ function Community() {
           </p>
           <div className="community-section" data-aos="fade-up">
             <p className="text-white">Join Our Pepecoin Community today!</p>
+            <div class="icon-wrapper flex justify-center items-center">
+              <a href="https://t.me/PEPELAYER_2" class="para-level-3">
+                <BsTelegram data-aos="fade-up" className="main-icon" />
+              </a>
+            </div>
             <div className="social-icons flex justify-center items-center">
-              <IoLogoReddit data-aos="fade-up" />
-              <IoLogoGithub data-aos="fade-up" />
-              <BsTelegram data-aos="fade-up" />
-              <IoLogoDiscord data-aos="fade-up" />
+              <IoLogoFacebook data-aos="fade-up" />
+              <IoLogoInstagram data-aos="fade-up" />
               <IoLogoTwitter data-aos="fade-up" />
               <IoLogoBitcoin data-aos="fade-up" />
-              <IoBarChartOutline data-aos="fade-up" />
+              
             </div>
           </div>
         </div>

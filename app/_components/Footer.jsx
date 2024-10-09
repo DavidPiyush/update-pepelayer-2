@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css"; // Import AOS styles
@@ -90,7 +90,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="copyright" data-aos="fade-up">
+      <div className="copyright">
         {" "}
         {/* Add fade-up animation to the copyright section */}
         <p>

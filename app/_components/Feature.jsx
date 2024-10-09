@@ -25,7 +25,7 @@ function Feature() {
   };
 
   return (
-    <section className="mt-24" id="roadmap">
+    <section className="" id="roadmap">
       <div className="container-div py-12 grid grid-cols-2 gap-20 items-center">
         <div className="relative" data-aos="fade-left">
           {" "}
@@ -41,7 +41,7 @@ function Feature() {
         <div className="space-y-10" data-aos="fade-left">
           {" "}
           {/* AOS applied here */}
-          <h1 className="text-7xl font-bold gradient-text-h1 leading-tight">
+          <h1 className="text-7xl font-bold text-[#e1a313] leading-tight">
             Pepe Layer <br /> Token
           </h1>
           <div className="space-y-4">

@@ -1,20 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import bgImage from "@/public/pepe-home.png";
 
 function Hero() {
   return (
-    <section className="h-[90vh] relative">
+    <section className="h-[100vh] section-hero">
       {/* Background Image */}
-      <Image
-        fill
-        src={bgImage}
-        alt="money-background"
-        placeholder="blur"
-        quality={50}
-        className=""
-      />
+
+      
 
       {/* Content Section */}
       <div className=" relative   h-[90vh]">

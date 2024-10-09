@@ -25,7 +25,7 @@ function Navbar() {
             </li>
             <li>
               <Link href="#how" className="nav-link">
-                How to Join
+                How to Buy
               </Link>
             </li>
             <Button className={"px-10"}>

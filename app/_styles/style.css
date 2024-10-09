@@ -377,7 +377,9 @@
   transform: scale(1.1);
   /* Slightly enlarge on hover */
 }
-
+.icon-wrapper {
+    margin-bottom: 1em;
+}
 .social-icons i {
   font-size: 3em;
   margin: 0 10px;
@@ -726,4 +728,22 @@ input[type="text"] {
     box-shadow: -15px -15px 15px #fff3, 15px 15px 15px #0000001a, -5px -5px 5px #fff3 inset, 5px 5px 5px #0000001a inset;
     border-radius: 25px;
     border: 4px solid #06b482;
+}
+
+/* STICKY NAVIGATION */
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: var(--primary-color);
+  z-index: 999;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.03);
+}
+
+.sticky .section-hero {
+  margin-top: 96px;
 }
