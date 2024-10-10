@@ -4,6 +4,7 @@ import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css"; // Import AOS styles
 import { useEffect, useState } from "react"; // Import useEffect
 import Button from "./Button";
+import Link from "next/link";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -59,7 +60,10 @@ function Contact() {
     <section className="feedback-section mt-12">
       <div className="container flex-col lg:flex-row ">
         <div className="form-container  w-[100%] lg:w-[60%]">
-          <h2 className="text-base lg:text-6xl font-bold shadow-sm" data-aos="fade-up">
+          <h2
+            className="text-3xl lg:text-6xl font-bold  text-shadow"
+            data-aos="fade-up"
+          >
             Get in Touch with Pepe Coin!
           </h2>
           <form id="feedbackForm" onSubmit={handleSubmit}>
@@ -125,10 +129,12 @@ function Contact() {
                   checked={formData.termsAgreed}
                   onChange={handleChange}
                 />
-                I agree to the
-                <a href="#" className="form-privacy" data-aos="fade-up">
-                  Terms and Privacy Policy
-                </a>
+                <div>
+                  <span>I agree to the </span>
+                  <Link href="#" className="form-privacy">
+                    Terms and Privacy Policy
+                  </Link>
+                </div>
               </label>
               <label className="form-label" data-aos="fade-up">
                 <input
@@ -167,84 +173,3 @@ function Contact() {
 }
 
 export default Contact;
-
-// <section className="mt-24">
-//   <h2
-//     className="text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12"
-//     data-aos="fade-left"
-//   >
-//     CONTACT US
-//   </h2>
-//   <div className="grid grid-cols-2">
-//     <article
-//       className="form-box bg-[#1A1919] flex items-center pl-12 text-white"
-//       data-aos="fade-up" // Add fade-up animation to the form box
-//     >
-//       <form className="form space-y-8">
-//         <input
-//           type="text"
-//           placeholder="John"
-//           className="input-field"
-//           required
-//           data-aos="fade-up" // Add fade-up animation to input fields
-//         />
-//         <input
-//           type="text"
-//           placeholder="Doe"
-//           className="input-field"
-//           required
-//           data-aos="fade-up"
-//         />
-//         <input
-//           type="email"
-//           name="email"
-//           id="email"
-//           placeholder="johan@devgmail.com"
-//           className="input-field"
-//           required
-//           data-aos="fade-up"
-//         />
-//         <input
-//           type="text"
-//           placeholder="Share your feedback"
-//           className="input-field"
-//           required
-//           data-aos="fade-up"
-//         />
-//         <input
-//           type="text"
-//           placeholder="Write your query here...."
-//           className="input-field"
-//           required
-//           data-aos="fade-up"
-//         />
-//         <div className="checkbox-field" data-aos="fade-up">
-//           <input type="checkbox" required />
-//           <a className="privacy-policy ">
-//             By submitting this form you agree to our Terms and Privacy
-//             Policy
-//           </a>
-//         </div>
-//         <div className="checkbox-field mt-12" data-aos="fade-up">
-//           <input type="checkbox" required />
-//           <a className="privacy-policy ">
-//             Yes, please keep me updated on PEPE news, events and offers.
-//           </a>
-//         </div>
-//         <div className="t-center" data-aos="fade-up">
-//           <Button
-//             type="submit"
-//             className="btn send-me rounded-2xl px-[200px]"
-//           >
-//             Send
-//           </Button>
-//         </div>
-//       </form>
-//     </article>
-//     <article className="form-frog" data-aos="fade-up">
-//       {" "}
-//       {/* Add animation to image container */}
-//       <img src="form-image.png" alt="contact jpg" />
-//     </article>
-//   </div>
-// </section>

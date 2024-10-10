@@ -7,15 +7,14 @@ function BuyNow() {
     <section className=" mt-12 relative z-50">
       <div className="container-div grid lg:grid-cols-2 gap-6 items-center justify-items-center">
         <div className="space-y-6 p-4 lg:p-0">
-          <h1 className="text-4xl lg:text-7xl font-bold text-white">
-            This is pepe coin website
+          <h1 className="text-4xl lg:text-7xl font-bold text-[#e1a313]">
+            Buy $PEPE now and join the L2 hype!
           </h1>
 
           <p className="text-[#ccc] lg:text-2xl text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-            quos sed et qui placeat distinctio voluptate ullam! Sapiente ad
-            dolores repudiandae sunt, esse vel magnam! Nam natus doloremque
-            veniam perspiciatis.
+            Buy now and power your wallet with Pepe Layer 2 – the future of meme
+            coins! Dive into a vibrant community where every transaction fuels
+            creativity and fun.
           </p>
           <div className="flex space-x-8">
             <a href="">

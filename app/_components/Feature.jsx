@@ -39,18 +39,18 @@ function Feature() {
           />
         </div>
         <div
-          className="space-y-10 flex justify-center items-center flex-col mt-8"
+          className="space-y-10 flex justify-center items-center lg:items-start flex-col mt-8"
           data-aos="fade-left"
         >
           {" "}
           {/* AOS applied here */}
-          <h1 className="text-4xl lg:text-7xl font-bold text-[#e1a313] leading-tight">
+          <h1 className="text-4xl lg:text-7xl font-bold text-[#e1a313] line-hight text-shadow ">
             Pepe Layer <br /> Token
           </h1>
           <div className="space-y-4 p-2 lg:p-0">
             {/* Second button */}
             <Button
-              className=" lg:p-3 pr-0 lg:text-base bg-[''] hover:bg-black flex items-center text-[10px] flex-col rounded-lg lg:flex-row "
+              className=" lg:p-0 pr-0 lg:text-base bg-[''] hover:bg-black flex  text-[10px] flex-col rounded-lg lg:flex-row lg:px-0 lg:py-0"
               onClick={() =>
                 handleCopy("0x5E20B1d17376A10c66f539004bC970Af59F2DC08")
               }
@@ -65,6 +65,9 @@ function Feature() {
             </Button>
           </div>
           <p className="text-sm md:text-xl text-[#eee]">
+            <span>
+              <i class="fa-solid fa-minus w-6 h-6 text-primary-heading-color pr-1"></i>
+            </span>
             Stay tuned for something amazing!
           </p>
         </div>

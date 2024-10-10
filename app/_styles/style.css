@@ -736,7 +736,8 @@ input[type="text"] {
   padding: 40px;
   text-align: center;
   width: 80%;
-  max-width: 800px;
+  /* max-width: 1210px; */
+
   position: relative;
   overflow: hidden; /* Ensures the image stays within the div */
 }
@@ -750,7 +751,8 @@ input[type="text"] {
   height: 100%;
   background-image: url("/pepe.webp"); /* Replace with your image URL */
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-repeat: no-repeat;
   opacity: 0.1; /* Adjust opacity level */
   z-index: 0; /* Ensure the background is behind the content */
 }
@@ -788,7 +790,7 @@ input[type="text"] {
 
 .social-icons-cn a {
   background-color: #ff5722; /* Orange color */
-  padding: 8px;
+  /* padding: 12px; */
   border-radius: 50%;
   display: inline-block;
   /* font-size: 40px; */
@@ -959,7 +961,7 @@ textarea {
 }
 
 .scrolling-logos-inner img {
-  height: 60px; /* Fixed height for logos */
+  height: 30px; /* Fixed height for logos */
   margin: 0 40px; /* Equal spacing between logos */
 }
 

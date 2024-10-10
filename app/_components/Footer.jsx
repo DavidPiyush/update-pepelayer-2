@@ -5,6 +5,7 @@ import "aos/dist/aos.css"; // Import AOS styles
 import { useEffect } from "react"; // Import useEffect
 
 import "@/app/_styles/style.css";
+import Logo from "./Logo";
 
 function Footer() {
   useEffect(() => {
@@ -17,7 +18,8 @@ function Footer() {
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-about">
-          <h2>Pepe Memes Coin</h2>
+          {/* <h2>Pepe Memes Coin</h2> */}
+          <Logo pClassName="text-4xl text-primary-heading-color" />
           <p>
             Your gateway to the most fun and rewarding meme coin. Join us on our
             journey to the moon!

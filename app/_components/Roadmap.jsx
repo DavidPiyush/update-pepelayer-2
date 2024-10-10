@@ -15,7 +15,7 @@ function Roadmap() {
     <section className="roadmaps ">
       <div className="container-div">
         <h2
-          className="text-3xl lg:text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12"
+          className="text-3xl lg:text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12 text-shadow"
           data-aos="fade-left"
         >
           Roadmap

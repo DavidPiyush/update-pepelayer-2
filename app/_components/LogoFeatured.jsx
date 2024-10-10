@@ -3,7 +3,7 @@ function LogoFeatured() {
   return (
     <section id="featured-logos" class="scrolling-logos-section">
       <div class="scrolling-logos-container">
-        <h2 class="scrolling-logos-heading">As Featured In</h2>
+        <h2 class="scrolling-logos-heading text-shadow">As Featured In</h2>
         <div class="scrolling-logos">
           <div class="scrolling-logos-inner">
             <img src="/Feature-img/techopedia.svg" alt="TechCrunch logo" />

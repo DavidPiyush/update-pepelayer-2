@@ -31,7 +31,7 @@ function JoinAirdrop() {
 
         <div className="absolute top-0 flex w-full flex-col items-center justify-center h-[1000px]">
           <h2
-            className="text-3xl lg:text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-6"
+            className="text-3xl lg:text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-6 text-shadow"
             data-aos="fade-in"
           >
             How to Buy
@@ -51,7 +51,7 @@ function JoinAirdrop() {
                 </h3>
                 <div>
                   <Image
-                    src={"/metamask-svg.svg"}
+                    src={`/${data.icon}`}
                     width={0}
                     height={0}
                     alt="wallet "

@@ -25,8 +25,7 @@ function Tokomonic() {
             Our Token Info
           </h2>
           <p className="text-[12px] lg:text-lg text-[#eee] max-w-xl p-4 lg:p-0">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
-            accumsan nisi Ut ut felis congue nisl hendrerit commodo.
+            The total supply of L2PEPE tokens will be allocated as follow
           </p>
         </div>
         <div className="grid lg:grid-cols-2  mt-16 lg:p-12  p-6">
@@ -38,32 +37,34 @@ function Tokomonic() {
                   <h6 className="text-white text-lg font-semibold">
                     Token Name
                   </h6>
-                  <p class="text-sm text-[#ccc]">Pepe Coin</p>
+                  <p class="text-sm text-[#ccc]">Pepelayer Token</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#e66392] w-8 h-8 rounded-full"></p>
                 <div>
-                  <h6 className="text-white text-lg font-semibold">
-                    CO Pre-sale starts in
-                  </h6>
-                  <p class="text-sm text-[#ccc]">June 15-30, 2025</p>
+                  <h6 className="text-white text-lg font-semibold">Presale</h6>
+                  <p class="text-sm text-[#ccc]">10% Allocation ( 1B tokens)</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#2acd72] w-8 h-8 rounded-full"></p>
                 <div>
-                  <h6 className="text-white text-lg font-semibold">Platform</h6>
-                  <p class="text-sm text-[#ccc]">Ethereum based</p>
+                  <h6 className="text-white text-lg font-semibold">
+                    Blockchain
+                  </h6>
+                  <p class="text-sm text-[#ccc]">SOLANA</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#1eb8e0] w-8 h-8 rounded-full"></p>
                 <div>
                   <h6 className="text-white text-lg font-semibold">
-                    PreICO price
+                    Ecosystem & Partnerships
                   </h6>
-                  <p class="text-sm text-[#ccc]">1 ETH = 1,000 Token</p>
+                  <p class="text-sm text-[#ccc]">
+                    10% Allocation (1B Tokens)
+                  </p>
                 </div>
               </li>
             </ul>
@@ -72,18 +73,16 @@ function Tokomonic() {
                 <p class="border-[7px] border-[#1eb8e0] w-8 h-8 rounded-full"></p>
                 <div>
                   <h6 className="text-white text-lg font-semibold">
-                    Token Soft cap
+                    Ticker Symbol
                   </h6>
-                  <p class="text-sm text-[#ccc]">$18.000.000</p>
+                  <p class="text-sm text-[#ccc]">L2PEPE</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#f5a67e] w-8 h-8 rounded-full"></p>
                 <div>
-                  <h6 className="text-white text-lg font-semibold">
-                    Token Hard Cap
-                  </h6>
-                  <p class="text-sm text-[#ccc]">$78.000.000</p>
+                  <h6 className="text-white text-lg font-semibold">Airdrop</h6>
+                  <p class="text-sm text-[#ccc]">60% (6B L2PEPE)</p>
                 </div>
               </li>
               <li className="flex gap-3">
@@ -92,16 +91,18 @@ function Tokomonic() {
                   <h6 className="text-white text-lg font-semibold">
                     Total Supply
                   </h6>
-                  <p class="text-sm text-[#ccc]">250.000.000 Token</p>
+                  <p class="text-sm text-[#ccc]">1,000,000,000 L2PEPE</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#e66392] w-8 h-8 rounded-full"></p>
                 <div>
                   <h6 className="text-white text-lg font-semibold">
-                    Sold Tokens
+                    Liquidity Pool
                   </h6>
-                  <p class="text-sm text-[#ccc]">49,828,000 Token</p>
+                  <p class="text-sm text-[#ccc]">
+                    10% Allocation (1B tokens)
+                  </p>
                 </div>
               </li>
             </ul>

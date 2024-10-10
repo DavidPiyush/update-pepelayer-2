@@ -13,19 +13,17 @@ function Hero() {
       {/* Content Section */}
       <div className="relative lg:h-[90vh] z-10 flex flex-col justify-center">
         {/* Text Content */}
-        <article className="w-full grid justify-end p-5 lg:pt-0">
-          <h1 className="text-4xl md:text-7xl my-6 font-bold heading-primary text-left">
-            PEPE LAYER 2
+        <article className="w-full grid justify-end p-5 lg:pt-0 lg:justify-center lg:ml-[330px]">
+          <h1 className="text-4xl md:text-7xl my-6 font-bold text-white text-left heading-primary">
+            Next-Gen Pepe <br /> Power
           </h1>
           <p className="text-base md:text-xl text-white max-w-xl">
-            Pepe Layer2 Memecoin is a cryptocurrency inspired by the popular
-            internet meme character Pepe the Frog. Created as a parody and a nod
-            to meme culture, Pepe Memecoin blends the playful, irreverent spirit
-            of online memes with the serious world of digital currencies.
+            Pepe Layer 2 is here to revolutionize meme coins. Lightning-fast
+            transactions and limitless possibilities for the meme community!
           </p>
 
           {/* Social Links */}
-          <div className="flex my-12 gap-12 justify-center">
+          <div className="flex my-12 gap-12 justify-center lg:justify-start">
             <Link href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

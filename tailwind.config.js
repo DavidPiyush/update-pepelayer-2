@@ -14,6 +14,7 @@ module.exports = {
           "text-grey-1": "#333",
           "step-color": "#E1A313",
           "btn-color": "#047857",
+          "heading-color": " #e1a313",
         },
       },
     },

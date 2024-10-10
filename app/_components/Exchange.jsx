@@ -1,6 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useSendTransaction, useWaitForTransactionReceipt } from "wagmi"; // Import wait for receipt
+import {
+  useSendTransaction,
+  useWaitForTransactionReceipt,
+  useAccount,
+} from "wagmi"; // Import useAccount
 import { parseEther } from "viem";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -10,7 +14,6 @@ import Select from "./Select";
 import { calculatePepeCoinAmount } from "@/app/_utlis/convertEtherToPepe";
 import timerFunction from "../_utlis/timer";
 import MiniSpinner from "./MiniSpinner";
-import Spinner from "./Spinner";
 
 function Exchange() {
   const [inputValue, setInputValue] = useState("");
@@ -18,13 +21,11 @@ function Exchange() {
   const [loading, setLoading] = useState(false);
 
   const { sendTransaction, isPending, error: sendError } = useSendTransaction();
+  const { isConnected } = useAccount(); // Check if wallet is connected
 
   // Use the wait for transaction receipt hook
-  const {
-    // data: transactionHash,
-    isSuccess: isConfirmed,
-    error: receiptError,
-  } = useWaitForTransactionReceipt();
+  const { isSuccess: isConfirmed, error: receiptError } =
+    useWaitForTransactionReceipt();
 
   useEffect(() => {
     timerFunction(); // Call the timer function
@@ -43,6 +44,11 @@ function Exchange() {
 
   // Handle sending the transaction
   async function handleSendTransaction() {
+    if (!isConnected) {
+      toast.error("Please connect your MetaMask wallet."); // Show toast if not connected
+      return;
+    }
+
     if (!inputValue) {
       toast.error("Please enter a valid amount.");
       return;

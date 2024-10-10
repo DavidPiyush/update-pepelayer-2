@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,6 +25,15 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+
+    font-size: 64px;
+    text-transform: uppercase;
+    background: linear-gradient(0deg, #f6fff2, #e1a313);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #06b482;
   }
 } */
 
@@ -58,15 +69,10 @@ body {
     }
   }
   .heading-primary {
-    /* font-size: 64px; */
-    /* text-transform: uppercase; */
-    background: linear-gradient(0deg, #f6fff2, #e1a313);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: #06b482;
-    letter-spacing: 1px;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    /* font-style: normal; */
   }
   .gradient-text-h1 {
     background: linear-gradient(
@@ -77,7 +83,13 @@ body {
     -webkit-background-clip: text; /* Clips the background to the text */
     -webkit-text-fill-color: transparent; /* Makes the text itself transparent */
   }
-
+  .line-hight {
+    line-height: 1.2 !important;
+  }
+  .text-shadow{
+    text-shadow: 3px 0px 2px #e1a313
+  }
+  
   .img-box {
     --s: 24px; /* control the size */
     padding: var(--s);

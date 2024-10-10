@@ -69,20 +69,20 @@ function Community() {
   }, []);
   return (
     <section class="mt-[120px] lg:mt-24 lg:h-[75vh] h-[63vh]">
-      <div className='community'>
-        <div class="stay-in-loop">
+      <div className="community">
+        <div class="stay-in-loop lg:h-[75vh] lg:max-w-[1210px]">
           <h2
-            className="text-[#e1a313] text-xl lg:text-5xl font-bold"
+            className="text-[#e1a313] text-xl lg:text-5xl font-bold text-shadow "
             data-aos="fade-up"
           >
             STAY IN THE LOOP!
           </h2>
           <p
-            className="text-[#ccc] text-[10px] lg:text-[1.1em]"
+            className="text-[#ccc] text-[10px] lg:text-[1.1em]  text-center"
             data-aos="fade-up"
           >
-            Become part of the $PEPE family—follow us for the latest updates,
-            exclusive content, and vibrant discussions. Dive in and connect with
+            Become part of the $PEPE family—follow us for the latest updates,<br />
+            exclusive content, and vibrant discussions. <br /> Dive in and connect with
             like-minded enthusiasts today!
           </p>
           <h3 className="text-white text-sm text-[1.3em]" data-aos="fade-up">
@@ -90,8 +90,14 @@ function Community() {
           </h3>
 
           <div class="social-icons-cn " data-aos="fade-up">
-            <a href="#" className="flex justify-center items-center w-10 h-10 lg:w-[70px] lg:h-[70px]">
-              <i class="fab fa-telegram-plane lg:text-5xl" data-aos="fade-up"></i>
+            <a
+              href="#"
+              className="flex justify-center items-center w-10 h-10 lg:w-[70px] lg:h-[70px] p-2 lg:p-3"
+            >
+              <i
+                class="fab fa-telegram-plane lg:text-5xl"
+                data-aos="fade-up"
+              ></i>
             </a>
           </div>
 
