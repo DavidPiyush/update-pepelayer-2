@@ -50,7 +50,7 @@ function Feature() {
           <div className="space-y-4 p-2 lg:p-0">
             {/* Second button */}
             <Button
-              className=" lg:p-3 pr-0 lg:text-base bg-[''] hover:bg-black flex items-center text-[10px] flex-col rounded-lg "
+              className=" lg:p-3 pr-0 lg:text-base bg-[''] hover:bg-black flex items-center text-[10px] flex-col rounded-lg lg:flex-row "
               onClick={() =>
                 handleCopy("0x5E20B1d17376A10c66f539004bC970Af59F2DC08")
               }
