@@ -16,7 +16,7 @@ function Tokomonic() {
           className="opacity-20"
         />
       </div>
-      <div className="absolute  flex  flex-col w-full top-[40rem] lg:top-[46rem]">
+      <div className="absolute  flex  flex-col w-full top-[44rem] lg:top-[46rem]">
         <div className="text-center space-y-3 mt-12 flex flex-col justify-center items-center">
           <h4 className="text-lglg:text-2xl font-bold text-[#e1a313]">
             About Our Token
@@ -106,7 +106,7 @@ function Tokomonic() {
               </li>
             </ul>
           </div>
-          <div className="relative lg:h-[60vh] h-[40vh] mt-6 lg:mt-0">
+          <div className="relative lg:h-[60vh] h-[30vh] mt-6 lg:mt-0">
             <Image
               src={pieChart}
               fill
