@@ -68,11 +68,11 @@ function Community() {
     });
   }, []);
   return (
-    <section class=" mt-24 lg:h-screen h-[90vh]">
+    <section class="mt-[120px] lg:mt-24 lg:h-[75vh] h-[63vh]">
       <div className='community'>
         <div class="stay-in-loop">
           <h2
-            className="text-[#e1a313] text-xl lg:text-[2.5em] "
+            className="text-[#e1a313] text-xl lg:text-5xl font-bold"
             data-aos="fade-up"
           >
             STAY IN THE LOOP!

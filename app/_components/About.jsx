@@ -17,7 +17,7 @@ function About() {
     });
   }, []);
   return (
-    <section className="my-24">
+    <section className="my-0">
       <div className="container-div grid lg:grid-cols-2 gap-12 items-center ">
         <article
           className="space-y-10 flex flex-col justify-center items-center p-2 lg:p-0"

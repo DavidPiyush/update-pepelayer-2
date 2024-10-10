@@ -7,14 +7,14 @@ function Hero() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0 "
-        style={{ backgroundImage: "url(/pepe-home.png)" }}
+        style={{ backgroundImage: "url(/home.png)" }}
       ></div>
 
       {/* Content Section */}
       <div className="relative lg:h-[90vh] z-10 flex flex-col justify-center">
         {/* Text Content */}
-        <article className="w-full grid justify-end p-5 lg:pt-24">
-          <h1 className="text-4xl md:text-7xl my-12 font-bold heading-primary text-left">
+        <article className="w-full grid justify-end p-5 lg:pt-0">
+          <h1 className="text-4xl md:text-7xl my-6 font-bold heading-primary text-left">
             PEPE LAYER 2
           </h1>
           <p className="text-base md:text-xl text-white max-w-xl">

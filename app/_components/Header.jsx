@@ -60,13 +60,16 @@ function Header({ className }) {
     setIsOpen((prev) => !prev);
   };
 
+  //display: grid;
+    //grid-auto-flow: column;
+    //justify-content: space-between;
   return (
     <header
       className={`${className} z-50 relative transition-all duration-300 `}
       id="header-el"
     >
-      <div className="lg:flex lg:items-center lg:container-div">
-        <div className="container-div flex items-center justify-between px-8 py-5">
+      <div className="lg:grid lg:grid-flow-col lg:justify-between lg:container-div">
+        <div className="container-div flex items-center  px-8 py-5 justify-between">
           <Logo />
           <button
             className="lg:hidden p-2 rounded focus:outline-none"

@@ -16,7 +16,7 @@ function JoinAirdrop() {
   }, []);
 
   return (
-    <section className="mt-24 " id="how">
+    <section className="my-24 " id="how">
       <div className="relative  ">
         <div className="relative h-[1000px]">
           <Image
@@ -39,7 +39,7 @@ function JoinAirdrop() {
           <div className="container-div grid lg:grid-cols-2 gap-6 p-6 lg:p-0">
             {cardData?.map((data) => (
               <article
-                className="lg:w-[566px] lg:h-[280px] gradient-card p-6 space-y-2"
+                className="lg:w-[566px]  gradient-card p-6 space-y-2"
                 key={data.step}
                 data-aos="fade-up" // Add fade-up animation to each card
               >
@@ -49,7 +49,16 @@ function JoinAirdrop() {
                 <h3 className="text-white font-bold text-[14px] lg:text-xl">
                   {data.title}
                 </h3>
-                <p className="text-[#ccc] py-2 text-[10px] lg:text-lg">
+                <div>
+                  <Image
+                    src={"/metamask-svg.svg"}
+                    width={0}
+                    height={0}
+                    alt="wallet "
+                    className="lg:w-[150px] lg:h-[150px] w-[50px] h-[50px]"
+                  />
+                </div>
+                <p className="text-[#ccc] py-2 text-[10px] lg:text-lg ">
                   {data.description}
                 </p>
                 {data.button && (

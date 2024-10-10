@@ -56,10 +56,10 @@ function Contact() {
   }, []); // Empty dependency array ensures this runs only once when component mounts
 
   return (
-    <section className="feedback-section">
+    <section className="feedback-section mt-12">
       <div className="container flex-col lg:flex-row ">
         <div className="form-container  w-[100%] lg:w-[60%]">
-          <h2 className="text-base text-[2.5em]" data-aos="fade-up">
+          <h2 className="text-base lg:text-6xl font-bold shadow-sm" data-aos="fade-up">
             Get in Touch with Pepe Coin!
           </h2>
           <form id="feedbackForm" onSubmit={handleSubmit}>

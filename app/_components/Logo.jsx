@@ -3,13 +3,21 @@ import Link from "next/link";
 
 function Logo() {
   return (
-    <div className="flex gap-5 items-center cursor-pointer">
+    <div className="flex gap-5 items-center cursor-pointer ">
       <Link href="/">
-        <Image
+        {/* <Image
           width={56}
           height={56}
           src={"/logo.png"}
           alt="Pepe coin logo"
+          className=" w-[56px] h-[56px] bg-white rounded-full border-2 border-white"
+        /> */}
+        <Image
+          src="/pepe-logo.gif"
+          alt="My Animation"
+          width={500} // Specify width
+          height={500} // Specify height
+          layout="intrinsic" // Can also use "responsive" or "fixed"
           className=" w-[56px] h-[56px] bg-white rounded-full border-2 border-white"
         />
       </Link>

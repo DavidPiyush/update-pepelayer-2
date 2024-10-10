@@ -25,7 +25,7 @@ function Feature() {
   };
 
   return (
-    <section className="lg:mt-24 mt-[234px]" id="roadmap">
+    <section className="lg:mt-0 mt-[234px]" id="roadmap">
       <div className="container-div py-12 lg:grid grid-cols-2 gap-20 items-center ">
         <div className="relative p-8 lg:p-0" data-aos="fade-left">
           {" "}
