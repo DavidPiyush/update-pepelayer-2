@@ -106,7 +106,7 @@ function Tokomonic() {
               </li>
             </ul>
           </div>
-          <div className="relative lg:h-[60vh] h-[30vh] mt-6 lg:mt-0">
+          <div className="relative lg:h-[60vh] h-[25vh] mt-6 lg:mt-0">
             <Image
               src={pieChart}
               fill
