@@ -91,7 +91,7 @@ function Community() {
 
           <div class="social-icons-cn " data-aos="fade-up">
             <a href="#" className="flex justify-center items-center w-10 h-10 lg:w-[70px] lg:h-[70px]">
-              <i class="fab fa-telegram-plane w-3 h-3" data-aos="fade-up"></i>
+              <i class="fab fa-telegram-plane lg:text-5xl" data-aos="fade-up"></i>
             </a>
           </div>
 

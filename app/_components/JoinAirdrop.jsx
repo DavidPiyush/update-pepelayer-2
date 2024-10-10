@@ -43,17 +43,17 @@ function JoinAirdrop() {
                 key={data.step}
                 data-aos="fade-up" // Add fade-up animation to each card
               >
-                <h3 className="heading-h3 font-bold text-lg">
+                <h3 className="heading-h3 font-bold text-lg lg:text-[36px]">
                   Step {data.step}
                 </h3>
-                <h3 className="text-white font-bold text-[14px]">
+                <h3 className="text-white font-bold text-[14px] lg:text-xl">
                   {data.title}
                 </h3>
-                <p className="text-[#ccc] py-2 text-[10px]">
+                <p className="text-[#ccc] py-2 text-[10px] lg:text-lg">
                   {data.description}
                 </p>
                 {data.button && (
-                  <Button className="px-20 py-2 text-base">
+                  <Button className="px-20 py-2 text-base bg-primary-btn-color">
                     {data.button}
                   </Button>
                 )}

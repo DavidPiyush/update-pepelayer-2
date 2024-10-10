@@ -6,20 +6,27 @@ import { toast } from "react-hot-toast"; // Import toast for notifications
 
 import Button from "./Button";
 
-function Navbar({isOpen,setIsOpen}) {
-
+function Navbar({ isOpen, setIsOpen }) {
   const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <nav className={`lg:block ${isOpen ? "block" : "hidden"}`}>
+    <nav
+      className={`lg:flex ${
+        isOpen ? "block" : "hidden"
+      } lg:block  transition-all duration-300`}
+    >
       <ul className="flex gap-12 items-center lg:flex-row flex-col">
         {pathname === "/" && (
           <>
             <li>
-              <Link href="#tokenomics" className="nav-link" onClick={toggleMenu}>
+              <Link
+                href="#tokenomics"
+                className="nav-link"
+                onClick={toggleMenu}
+              >
                 TOKENOMICS
               </Link>
             </li>

@@ -5,8 +5,8 @@ import pieChart from "@/public/pie-chart.png";
 
 function Tokomonic() {
   return (
-    <section className="mt-20 h-screen lg:h-auto" id="tokenomics">
-      <div className="relative lg:h-screen h-[60vh]">
+    <section className="mt-20 h-[140vh] lg:h-[80vh]" id="tokenomics">
+      <div className="relative  h-[100vh]">
         <Image
           src={tokomonicBg}
           alt="background"
@@ -16,7 +16,7 @@ function Tokomonic() {
           className="opacity-20"
         />
       </div>
-      <div className="absolute lg:top-0 flex  flex-col w-full top-[40rem]">
+      <div className="absolute  flex  flex-col w-full top-[40rem] lg:top-[46rem]">
         <div className="text-center space-y-3 mt-12 flex flex-col justify-center items-center">
           <h4 className="text-lglg:text-2xl font-bold text-[#e1a313]">
             About Our Token
@@ -106,7 +106,7 @@ function Tokomonic() {
               </li>
             </ul>
           </div>
-          <div className="relative lg:h-[60vh] h-[25vh]">
+          <div className="relative lg:h-[60vh] h-[40vh] mt-6 lg:mt-0">
             <Image
               src={pieChart}
               fill
