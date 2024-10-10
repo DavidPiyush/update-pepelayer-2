@@ -144,7 +144,7 @@ function Contact() {
 
             <Button
               type="submit"
-              className="btn bg-[#e1a313] text-[12px]"
+              className="btn bg-[#e1a313] text-[17px] py-[12px]"
               data-aos="fade-up"
             >
               🚀 Submit to the Moon 🚀
