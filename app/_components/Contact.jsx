@@ -58,8 +58,10 @@ function Contact() {
   return (
     <section className="feedback-section">
       <div className="container flex-col lg:flex-row ">
-        <div className="form-container flex-grow w-[100%] lg:w-[60%]">
-          <h2 data-aos="fade-up">Get in Touch with Pepe Coin!</h2>
+        <div className="form-container  w-[100%] lg:w-[60%]">
+          <h2 className="text-base text-[2.5em]" data-aos="fade-up">
+            Get in Touch with Pepe Coin!
+          </h2>
           <form id="feedbackForm" onSubmit={handleSubmit}>
             <div className="input-container">
               <input
@@ -140,12 +142,19 @@ function Contact() {
               </label>
             </div>
 
-            <button type="submit" className="btn" data-aos="fade-up">
+            <Button
+              type="submit"
+              className="btn bg-[#e1a313] text-[12px]"
+              data-aos="fade-up"
+            >
               🚀 Submit to the Moon 🚀
-            </button>
+            </Button>
           </form>
         </div>
-        <div className="image-container w-[100%] lg:w-[35%] p-6 lg:p-0" data-aos="fade-up">
+        <div
+          className="image-container w-[100%] lg:w-[35%] p-6 lg:p-0"
+          data-aos="fade-up"
+        >
           <img
             src="/form-image.png"
             alt="Pepe with Coins"

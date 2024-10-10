@@ -16,19 +16,19 @@ import LogoFeatured from "./_components/LogoFeatured";
 
 export default function Home() {
   return (
-    <main className="bg-[#000]">
-      <section className="relative z-20 md:h-[120vh] h-[80vh]">
+    <main className="bg-[#000] overflow-x-hidden">
+      {/* <section className="relative  lg:h-[120vh] h-[100vh]"> */}
         <Header />
-        <Image
+        {/* <Image
           fill
           src={bgImage}
           alt="money-background"
           placeholder="blur"
           quality={50}
           className="object-cover object-top"
-        />
+        /> */}
         <Hero />
-      </section>
+      {/* </section> */}
       <Tokomonic />
       <Feature />
       <About />

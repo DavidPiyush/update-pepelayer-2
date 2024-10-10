@@ -116,7 +116,7 @@ function Exchange() {
       </div>
       <Button
         type="button"
-        className="w-full focus:outline-none text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+        className="w-full focus:outline-none text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 bg-primary-btn-color"
         onClick={handleSendTransaction}
         disabled={loading || isPending}
       >

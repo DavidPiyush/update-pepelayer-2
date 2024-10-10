@@ -12,10 +12,10 @@ function Roadmap() {
   }, []);
 
   return (
-    <section className="roadmaps">
+    <section className="roadmaps ">
       <div className="container-div">
         <h2
-          className="text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12"
+          className="text-3xl lg:text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12"
           data-aos="fade-left"
         >
           Roadmap
@@ -26,7 +26,7 @@ function Roadmap() {
               <img
                 src="/roadmap/one.png"
                 alt="frog image"
-                className="timeline-icon-left"
+                className="timeline-icon-left hidden lg:block"
               />
               <div className="timeline-content">
                 <h3 className="timeline-date">
@@ -54,7 +54,7 @@ function Roadmap() {
               <img
                 src={"/roadmap/two.png"}
                 alt="frog image"
-                className="timeline-icon-right "
+                className="timeline-icon-right hidden lg:block"
               />
               <div className="timeline-content">
                 <h3 className="timeline-date">
@@ -78,7 +78,7 @@ function Roadmap() {
               <img
                 src="/roadmap/three.png"
                 alt="frog image"
-                className="timeline-icon-left"
+                className="timeline-icon-left hidden lg:block"
               />
               <div className="timeline-content">
                 <h3 className="timeline-date">
@@ -110,7 +110,7 @@ function Roadmap() {
               <img
                 src="/roadmap/four.png"
                 alt="frog image"
-                className="timeline-icon-right"
+                className="timeline-icon-right hidden lg:block"
               />
               <div className="timeline-content">
                 <h3 className="timeline-date">
@@ -142,7 +142,7 @@ function Roadmap() {
               <img
                 src="/roadmap/six.png"
                 alt="frog image"
-                className="timeline-icon-left"
+                className="timeline-icon-left hidden lg:block"
               />
               <div className="timeline-content">
                 <h3 className="timeline-date">

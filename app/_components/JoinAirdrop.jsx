@@ -16,40 +16,50 @@ function JoinAirdrop() {
   }, []);
 
   return (
-    <section className="my-24 relative" id="how">
-      <div className="relative h-screen">
-        <Image
-          src={cardImage}
-          alt="background"
-          fill
-          quality={50}
-          palaceholder={"blur"}
-          className="opacity-20"
-        />
-      </div>
+    <section className="mt-24 " id="how">
+      <div className="relative  ">
+        <div className="relative h-[1000px]">
+          <Image
+            src={cardImage}
+            alt="background"
+            fill
+            quality={50}
+            palaceholder={"blur"}
+            className="opacity-20"
+          />
+        </div>
 
-      <div className="absolute top-0 flex w-full flex-col items-center justify-center">
-        <h2
-          className="text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12"
-          data-aos="fade-in"
-        >
-          How to Buy
-        </h2>
-        <div className="container-div grid lg:grid-cols-2 gap-6">
-          {cardData?.map((data) => (
-            <article
-              className="lg:w-[566px] lg:h-[280px] gradient-card p-6 space-y-2"
-              key={data.step}
-              data-aos="fade-up" // Add fade-up animation to each card
-            >
-              <h3 className="heading-h3 font-bold">Step {data.step}</h3>
-              <h3 className="text-white font-bold">{data.title}</h3>
-              <p className="text-[#ccc] py-2">{data.description}</p>
-              {data.button && (
-                <Button className="px-20 py-2 text-base">{data.button}</Button>
-              )}
-            </article>
-          ))}
+        <div className="absolute top-0 flex w-full flex-col items-center justify-center h-[1000px]">
+          <h2
+            className="text-3xl lg:text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-6"
+            data-aos="fade-in"
+          >
+            How to Buy
+          </h2>
+          <div className="container-div grid lg:grid-cols-2 gap-6 p-6 lg:p-0">
+            {cardData?.map((data) => (
+              <article
+                className="lg:w-[566px] lg:h-[280px] gradient-card p-6 space-y-2"
+                key={data.step}
+                data-aos="fade-up" // Add fade-up animation to each card
+              >
+                <h3 className="heading-h3 font-bold text-lg">
+                  Step {data.step}
+                </h3>
+                <h3 className="text-white font-bold text-[14px]">
+                  {data.title}
+                </h3>
+                <p className="text-[#ccc] py-2 text-[10px]">
+                  {data.description}
+                </p>
+                {data.button && (
+                  <Button className="px-20 py-2 text-base">
+                    {data.button}
+                  </Button>
+                )}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

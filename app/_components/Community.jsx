@@ -68,39 +68,47 @@ function Community() {
     });
   }, []);
   return (
-    <section class="community mt-16">
-      <div class="stay-in-loop">
-        <h2 className="text-[#e1a313]" data-aos="fade-up">
-          STAY IN THE LOOP!
-        </h2>
-        <p className="text-[#ccc]" data-aos="fade-up">
-          Become part of the $PEPE family—follow us for the latest updates,
-          exclusive content, and vibrant discussions. Dive in and connect with
-          like-minded enthusiasts today!
-        </p>
-        <h3 className="text-white" data-aos="fade-up">
-          Join Our Pepecoin Community today!
-        </h3>
+    <section class=" mt-24 lg:h-screen h-[90vh]">
+      <div className='community'>
+        <div class="stay-in-loop">
+          <h2
+            className="text-[#e1a313] text-xl lg:text-[2.5em] "
+            data-aos="fade-up"
+          >
+            STAY IN THE LOOP!
+          </h2>
+          <p
+            className="text-[#ccc] text-[10px] lg:text-[1.1em]"
+            data-aos="fade-up"
+          >
+            Become part of the $PEPE family—follow us for the latest updates,
+            exclusive content, and vibrant discussions. Dive in and connect with
+            like-minded enthusiasts today!
+          </p>
+          <h3 className="text-white text-sm text-[1.3em]" data-aos="fade-up">
+            Join Our Pepecoin Community today!
+          </h3>
 
-        <div class="social-icons-cn " data-aos="fade-up">
-          <a href="#" className="flex justify-center items-center">
-            <i class="fab fa-telegram-plane " data-aos="fade-up"></i>
-          </a>
-        </div>
+          <div class="social-icons-cn " data-aos="fade-up">
+            <a href="#" className="flex justify-center items-center w-10 h-10 lg:w-[70px] lg:h-[70px]">
+              <i class="fab fa-telegram-plane w-3 h-3" data-aos="fade-up"></i>
+            </a>
+          </div>
 
-        <div class="social-media-links-cn">
-          <a href="#">
-            <i class="fab fa-facebook" data-aos="fade-up"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-instagram" data-aos="fade-up"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-twitter" data-aos="fade-up"></i>
-          </a>
-          <a href="#">
-            <i class="fab fa-bitcoin" data-aos="fade-up"></i>
-          </a>
+          <div class="social-media-links-cn">
+            <a href="#">
+              <i class="fab fa-facebook" data-aos="fade-up"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-instagram" data-aos="fade-up"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-twitter" data-aos="fade-up"></i>
+            </a>
+            <a href="#">
+              <i class="fab fa-bitcoin" data-aos="fade-up"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>

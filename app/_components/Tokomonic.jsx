@@ -5,8 +5,8 @@ import pieChart from "@/public/pie-chart.png";
 
 function Tokomonic() {
   return (
-    <section className=" relative mt-20">
-      <div className="relative lg:h-screen h-[80vh]">
+    <section className="mt-20 h-screen lg:h-auto" id="tokenomics">
+      <div className="relative lg:h-screen h-[60vh]">
         <Image
           src={tokomonicBg}
           alt="background"
@@ -16,17 +16,21 @@ function Tokomonic() {
           className="opacity-20"
         />
       </div>
-      <div className="absolute top-0 flex justify-center items-center flex-col w-full">
+      <div className="absolute lg:top-0 flex  flex-col w-full top-[40rem]">
         <div className="text-center space-y-3 mt-12 flex flex-col justify-center items-center">
-          <h4 className="text-2xl font-bold text-[#e1a313]">About Our Token</h4>
-          <h2 className="text-4xl font-bold text-[#e1a313]">Our Token Info</h2>
-          <p className="text-lg text-[#eee] max-w-xl ">
+          <h4 className="text-lglg:text-2xl font-bold text-[#e1a313]">
+            About Our Token
+          </h4>
+          <h2 className="text-xl lg:text-4xl font-bold text-[#e1a313]">
+            Our Token Info
+          </h2>
+          <p className="text-[12px] lg:text-lg text-[#eee] max-w-xl p-4 lg:p-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
             accumsan nisi Ut ut felis congue nisl hendrerit commodo.
           </p>
         </div>
-        <div className="grid lg:grid-cols-2 items-center mt-16 container-div ">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2  mt-16 lg:p-12  p-6">
+          <div className="grid lg:grid-cols-2 gap-4">
             <ul className="space-y-6">
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#997dea] w-8 h-8 rounded-full"></p>
@@ -102,7 +106,7 @@ function Tokomonic() {
               </li>
             </ul>
           </div>
-          <div className="relative ">
+          <div className="relative lg:h-[60vh] h-[25vh]">
             <Image
               src={pieChart}
               fill

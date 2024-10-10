@@ -6,20 +6,25 @@ import { toast } from "react-hot-toast"; // Import toast for notifications
 
 import Button from "./Button";
 
-function Navbar() {
+function Navbar({isOpen,setIsOpen}) {
+
   const pathname = usePathname();
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-    <nav className="">
-      <ul className="flex gap-12 items-center">
+    <nav className={`lg:block ${isOpen ? "block" : "hidden"}`}>
+      <ul className="flex gap-12 items-center lg:flex-row flex-col">
         {pathname === "/" && (
           <>
             <li>
-              <Link href="#" className="nav-link">
+              <Link href="#tokenomics" className="nav-link" onClick={toggleMenu}>
                 TOKENOMICS
               </Link>
             </li>
             <li>
-              <Link href="#roadmap" className="nav-link">
+              <Link href="#roadmap" className="nav-link" onClick={toggleMenu}>
                 Roadmap
               </Link>
             </li>
@@ -28,8 +33,10 @@ function Navbar() {
                 How to Buy
               </Link>
             </li>
-            <Button className={"px-10"}>
-              <Link href="/buy">Buy Now</Link>
+            <Button className={"px-10 bg-primary-btn-color"}>
+              <Link href="/buy" onClick={toggleMenu}>
+                Buy Now
+              </Link>
             </Button>
           </>
         )}
@@ -37,12 +44,12 @@ function Navbar() {
         {pathname === "/airDrop" && (
           <>
             <li>
-              <Link href="/" className="nav-link">
+              <Link href="/" className="nav-link" onClick={toggleMenu}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="#roadmap" className="nav-link">
+              <Link href="#roadmap" className="nav-link" onClick={toggleMenu}>
                 Roadmap
               </Link>
             </li>
@@ -52,12 +59,12 @@ function Navbar() {
         {pathname === "/buy" && (
           <>
             <li>
-              <Link href="/" className="nav-link">
+              <Link href="/" className="nav-link" onClick={toggleMenu}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="#roadmap" className="nav-link">
+              <Link href="#roadmap" className="nav-link" onClick={toggleMenu}>
                 Roadmap
               </Link>
             </li>

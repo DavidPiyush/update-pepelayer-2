@@ -5,13 +5,13 @@ import Purchased from "./Purchased";
 function BuyNow() {
   return (
     <section className=" mt-12 relative z-50">
-      <div className="container-div grid grid-cols-2 gap-6 items-center justify-items-center">
-        <div className="space-y-6">
-          <h1 className="text-7xl font-bold text-white">
+      <div className="container-div grid lg:grid-cols-2 gap-6 items-center justify-items-center">
+        <div className="space-y-6 p-4 lg:p-0">
+          <h1 className="text-4xl lg:text-7xl font-bold text-white">
             This is pepe coin website
           </h1>
 
-          <p className="text-[#ccc] text-2xl">
+          <p className="text-[#ccc] lg:text-2xl text-base">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
             quos sed et qui placeat distinctio voluptate ullam! Sapiente ad
             dolores repudiandae sunt, esse vel magnam! Nam natus doloremque
@@ -45,7 +45,7 @@ function BuyNow() {
           </div>
         </div>
         {/* //{` ${boxCommonProperty}`} */}
-        <div className="bg-[#333] p-5 rounded-lg  flex flex-1 flex-col max-w-sm   ">
+        <div className="bg-[#333] p-5 rounded-lg  flex flex-1 flex-col lg:max-w-sm  max-w-[350px]  my-12 lg:my-0">
           <PepeHeader />
           <Purchased />
           <Exchange />

@@ -25,9 +25,9 @@ function Feature() {
   };
 
   return (
-    <section className="relative" id="roadmap">
+    <section className="lg:mt-24 mt-[234px]" id="roadmap">
       <div className="container-div py-12 lg:grid grid-cols-2 gap-20 items-center ">
-        <div className="relative" data-aos="fade-left">
+        <div className="relative p-8 lg:p-0" data-aos="fade-left">
           {" "}
           {/* AOS applied here */}
           <Image
@@ -38,30 +38,33 @@ function Feature() {
             className="img-box"
           />
         </div>
-        <div className="space-y-10 flex justify-center items-center flex-col mt-8" data-aos="fade-left">
+        <div
+          className="space-y-10 flex justify-center items-center flex-col mt-8"
+          data-aos="fade-left"
+        >
           {" "}
           {/* AOS applied here */}
-          <h1 className="text-7xl font-bold text-[#e1a313] leading-tight">
+          <h1 className="text-4xl lg:text-7xl font-bold text-[#e1a313] leading-tight">
             Pepe Layer <br /> Token
           </h1>
-          <div className="space-y-4">
+          <div className="space-y-4 p-2 lg:p-0">
             {/* Second button */}
             <Button
-              className="p-3 pr-0 text-base bg-[#000] hover:bg-black flex items-center"
+              className=" lg:p-3 pr-0 lg:text-base bg-[''] hover:bg-black flex items-center text-[10px] flex-col rounded-lg "
               onClick={() =>
                 handleCopy("0x5E20B1d17376A10c66f539004bC970Af59F2DC08")
               }
             >
-              <span className="bg-yellow-600 p-3 rounded-s-lg">
+              <span className="bg-yellow-600 p-3 lg:rounded-s-lg  rounded-sm">
                 0x5E20B1d17376A10c66f539004bC970Af59F2DC08
               </span>
-              <span className="bg-green-800 p-3 px-4 rounded-e-lg flex gap-2 items-center">
+              <span className="bg-green-800 p-3 px-4 lg:rounded-e-lg flex gap-2 items-center w-full justify-center rounded-sm">
                 <IoCopyOutline />
                 COPY
               </span>
             </Button>
           </div>
-          <p className="text-lg md:text-xl text-[#eee]">
+          <p className="text-sm md:text-xl text-[#eee]">
             Stay tuned for something amazing!
           </p>
         </div>
