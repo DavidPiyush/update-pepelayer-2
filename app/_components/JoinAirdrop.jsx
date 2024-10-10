@@ -54,7 +54,8 @@ function JoinAirdrop() {
                     src={`/${data.icon}`}
                     width={0}
                     height={0}
-                    alt="wallet "
+                    alt="wallet"
+                    quality={90}
                     className="lg:w-[150px] lg:h-[150px] w-[50px] h-[50px]"
                   />
                 </div>

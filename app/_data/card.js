@@ -19,7 +19,7 @@ export const cardData = [
     description:
       "Visit the AirDrop page and complete the required tasks. This may include activities like sharing on social media, joining our communities, or other promotional actions.",
     button: "Join AirDrop",
-    icon: "task.png",
+    icon: "exchange.png",
   },
 
   {
@@ -27,6 +27,6 @@ export const cardData = [
     title: "Follow and Claim",
     description:
       "Follow us on Twitter, Telegram, and Discord. Return to the AirDrop page, click 'Claim AirDrop,' and confirm the transaction in your wallet. Check your wallet balance for your new Pepe Layer2 tokens.",
-    icon: "",
+    icon: "get-coin.png",
   },
 ];
