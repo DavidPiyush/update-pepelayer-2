@@ -18,12 +18,12 @@ function About() {
   }, []);
   return (
     <section className="my-24">
-      <div className="container-div grid grid-cols-2 gap-12 items-center ">
-        <article className="space-y-10" data-aos="fade-left">
+      <div className="container-div grid lg:grid-cols-2 gap-12 items-center ">
+        <article className="space-y-10 flex flex-col justify-center items-center" data-aos="fade-left">
           <h2 className="text-6xl font-bold neon-heading leading-tight uppercase">
             About $pepe
           </h2>
-          <p className="text-lg  text-[#eee]">
+          <p className="text-lg  text-[#eee] text-center ">
             Introducing $PEPE: The ultimate meme coin with a colossal supply of
             100 billion tokens. Our token features 65% liquidity locked for one
             year for unmatched stability and a 5% transaction tax to fuel

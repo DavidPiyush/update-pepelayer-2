@@ -35,10 +35,10 @@ function JoinAirdrop() {
         >
           How to Buy
         </h2>
-        <div className="container-div grid grid-cols-2 gap-6">
+        <div className="container-div grid lg:grid-cols-2 gap-6">
           {cardData?.map((data) => (
             <article
-              className="w-[566px] h-[280px] gradient-card p-6 space-y-2"
+              className="lg:w-[566px] lg:h-[280px] gradient-card p-6 space-y-2"
               key={data.step}
               data-aos="fade-up" // Add fade-up animation to each card
             >

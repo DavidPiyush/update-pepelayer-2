@@ -13,7 +13,7 @@ function Roadmap() {
 
   return (
     <section className="roadmaps">
-      <div className="container">
+      <div className="container-div">
         <h2
           className="text-6xl font-bold text-[#e1a313] leading-tight uppercase text-center py-12"
           data-aos="fade-left"

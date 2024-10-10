@@ -25,8 +25,8 @@ function Feature() {
   };
 
   return (
-    <section className="" id="roadmap">
-      <div className="container-div py-12 grid grid-cols-2 gap-20 items-center">
+    <section className="relative" id="roadmap">
+      <div className="container-div py-12 lg:grid grid-cols-2 gap-20 items-center ">
         <div className="relative" data-aos="fade-left">
           {" "}
           {/* AOS applied here */}
@@ -38,7 +38,7 @@ function Feature() {
             className="img-box"
           />
         </div>
-        <div className="space-y-10" data-aos="fade-left">
+        <div className="space-y-10 flex justify-center items-center flex-col mt-8" data-aos="fade-left">
           {" "}
           {/* AOS applied here */}
           <h1 className="text-7xl font-bold text-[#e1a313] leading-tight">

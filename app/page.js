@@ -12,11 +12,12 @@ import Roadmap from "./_components/Roadmap";
 
 import bgImage from "@/public/pepe-home.png";
 import Tokomonic from "./_components/Tokomonic";
+import LogoFeatured from "./_components/LogoFeatured";
 
 export default function Home() {
   return (
     <main className="bg-[#000]">
-      <section className="relative z-20 h-[120vh]">
+      <section className="relative z-20 md:h-[120vh] h-[80vh]">
         <Header />
         <Image
           fill
@@ -24,7 +25,7 @@ export default function Home() {
           alt="money-background"
           placeholder="blur"
           quality={50}
-          className="object-cover"
+          className="object-cover object-top"
         />
         <Hero />
       </section>
@@ -35,6 +36,7 @@ export default function Home() {
       <JoinAirdrop />
       <Community />
       <Contact />
+      <LogoFeatured />
       <Footer />
     </main>
   );

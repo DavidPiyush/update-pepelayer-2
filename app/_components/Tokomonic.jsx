@@ -1,11 +1,12 @@
 import Image from "next/image";
 
 import tokomonicBg from "@/public/tokoenmic.png";
+import pieChart from "@/public/pie-chart.png";
 
 function Tokomonic() {
   return (
     <section className=" relative mt-20">
-      <div className="relative h-screen">
+      <div className="relative lg:h-screen h-[80vh]">
         <Image
           src={tokomonicBg}
           alt="background"
@@ -24,7 +25,7 @@ function Tokomonic() {
             accumsan nisi Ut ut felis congue nisl hendrerit commodo.
           </p>
         </div>
-        <div className="grid grid-cols-2 items-center mt-16 container-div ">
+        <div className="grid lg:grid-cols-2 items-center mt-16 container-div ">
           <div className="grid grid-cols-2 gap-4">
             <ul className="space-y-6">
               <li className="flex gap-3">
@@ -101,8 +102,15 @@ function Tokomonic() {
               </li>
             </ul>
           </div>
-          <div>
-            <img src="/pie-chart.png" alt="pie chart" className="w-full" />
+          <div className="relative ">
+            <Image
+              src={pieChart}
+              fill
+              alt="pie chart"
+              className="object-cover object-center"
+              quality={90}
+              palaceholder="blur"
+            />
           </div>
         </div>
       </div>
