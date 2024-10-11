@@ -178,7 +178,7 @@
   background: #333;
   border-radius: 12px;
   padding: 20px;
-  /* box-shadow: 0 0 20px rgba(0, 255, 204, 0.5); */
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
   position: relative;
   width: 80%;
   z-index: 1;
@@ -204,7 +204,7 @@
   font-size: 32px;
   margin-right: 12px;
   color: #fff;
-  /* text-shadow: 0 0 3px #c22d2d, 0 0 8px #c22d2d, 0 0 15px #c22d2d; */
+  text-shadow: 0 0 3px #c22d2d, 0 0 8px #c22d2d, 0 0 15px #c22d2d;
 }
 
 .timeline-description {
@@ -519,18 +519,22 @@ Reffer
 
 .challenge-box h2 {
   font-size: 2.5em;
-  color: #333;
-  margin-bottom: 10px;
+  /* color: #333; */
+  /* margin-bottom: 10px; */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .challenge-box p {
   font-size: 1.4em;
-  color: #666;
+  /* color: #666; */
   margin: 5px 0;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.challenge-box button {
+  padding: 20px 130px;
+  border-radius: 18px;
+}
 #referralInfo {
   display: flex;
   justify-content: space-around;
@@ -1166,5 +1170,34 @@ textarea {
   .newsletter-form button {
     width: 100%;
     margin-top: 5px;
+  }
+}
+/* .section-el:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/bgairdrop.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: .1;
+    z-index: -1;
+} */
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: marquee 30s linear infinite;
+  margin-left: 10px;
+}
+@keyframes marquee {
+  0% {
+    transform: translate(100%);
+  }
+  100% {
+    transform: translate(-100%);
   }
 }

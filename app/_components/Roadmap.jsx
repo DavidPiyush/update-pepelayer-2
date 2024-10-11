@@ -41,7 +41,8 @@ function Roadmap() {
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Airdrop launch
+                  {/* Airdrop launch */}
+                  Pre-sale launch
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
@@ -67,10 +68,10 @@ function Roadmap() {
                   <span>•</span>
                   Airdrop distribution 50% at TGE 50% after CEX listing
                 </h3>
-                <h3 className="timeline-date">
+                {/* <h3 className="timeline-date">
                   <span>•</span>
                   Pre-sale launch
-                </h3>
+                </h3> */}
               </div>
             </article>
 
@@ -84,24 +85,25 @@ function Roadmap() {
                 <h3 className="timeline-date">
                   <span>Phase 3</span>
                 </h3>
+
                 <h3 className="timeline-date">
-                  <span>•</span> Marketing and influencers campaign
+                  <span>•</span> Tier-1 CEX Listing
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Pre-sale distribution claim
+                  Airdrop for game users.
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  List On DEXes
+                  Marketing campaign
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  CMC &amp; CoinGecko
+                  Influencers Campaign
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Vested Airdrop distribution 50%
+                  New merchandising collection
                 </h3>
               </div>
             </article>
@@ -149,23 +151,23 @@ function Roadmap() {
                   <span>Phase 5</span>
                 </h3>
                 <h3 className="timeline-date">
-                  <span>•</span> Tier-1 CEX Listing
+                  <span>•</span> Marketing and influencers campaign
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Airdrop for game users.
+                  Pre-sale distribution claim
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Marketing campaign
+                  List On DEXes
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  Influencers Campaign
+                  CMC &amp; CoinGecko
                 </h3>
                 <h3 className="timeline-date">
                   <span>•</span>
-                  New merchandising collection
+                  Vested Airdrop distribution 100%
                 </h3>
               </div>
             </article>

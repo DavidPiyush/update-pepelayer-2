@@ -1,32 +1,33 @@
 export const cardData = [
   {
     step: "1",
-    title: "Set Up Your Wallet",
+    title: "Create Your Wallet",
     description:
-      "Install MetaMask on your browser or use a Wallet Connect-supported wallet like Trust Wallet. Create a new wallet and securely store your recovery phrase.",
-    icon: "metamask-svg.svg",
+      " Choose a secure cryptocurrency wallet like MetaMask, Binance, WazirX or Other. Ensure it's ready to handle ERC-20 tokens, paving the way for your $PEPE purchase!.",
+    icon: "pepe-logo-1.gif",
   },
   {
     step: "2",
     title: "Connect Your Wallet",
     description:
-      "Visit our Pepe Layer2 AirDrop page and click 'Connect Wallet.' Select your wallet and authorize the connection. Ensure your wallet is set to the correct blockchain network.",
+      "Link your wallet to a trusted decentralized exchange (DEX) that supports $PEPE. This connection is your gateway to effortless trading and a seamless buying experience",
     icon: "pepe-logo.gif",
   },
   {
     step: "3",
-    title: "Visit the AirDrop Page and Complete Tasks",
+    title: "Buy $PEPE",
     description:
-      "Visit the AirDrop page and complete the required tasks. This may include activities like sharing on social media, joining our communities, or other promotional actions.",
+      "Navigate to the $PEPE listing on the DEX and select the amount you want to purchase. Get ready to tap into the excitement of the memecoin world!",
     button: "Join AirDrop",
-    icon: "exchange.png",
+    icon: "pepe-logo-2.gif",
+    link: "/airDrop",
   },
 
   {
     step: "4",
-    title: "Follow and Claim",
+    title: "Confirm the Transaction",
     description:
-      "Follow us on Twitter, Telegram, and Discord. Return to the AirDrop page, click 'Claim AirDrop,' and confirm the transaction in your wallet. Check your wallet balance for your new Pepe Layer2 tokens.",
-    icon: "get-coin.png",
+      " Review your transaction details and hit confirm. Congratulations! You’re now a proud member of the $PEPE community! Let’s ride the wave of innovation and fun together!",
+    icon: "pepe-logo-3.gif",
   },
 ];

@@ -18,8 +18,9 @@ function Hero() {
             Next-Gen Pepe <br /> Power
           </h1>
           <p className="text-base md:text-xl text-white max-w-xl">
-            Pepe Layer 2 is here to revolutionize meme coins. Lightning-fast
-            transactions and limitless possibilities for the meme community!
+            Where the vibrant world of memes seamlessly meets the future of
+            cryptocurrency—powered by the iconic Pepe the Frog and driven by
+            cutting-edge innovation.
           </p>
 
           {/* Social Links */}

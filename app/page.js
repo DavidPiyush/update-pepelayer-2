@@ -29,9 +29,9 @@ export default function Home() {
         /> */}
         <Hero />
       {/* </section> */}
+      <About />
       <Tokomonic />
       <Feature />
-      <About />
       <Roadmap />
       <JoinAirdrop />
       <Community />

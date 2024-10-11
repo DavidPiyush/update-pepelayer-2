@@ -26,17 +26,17 @@ function Footer() {
           </p>
           <ul class="social-icons-footer">
             <li>
-              <a href="#">
+              <a href="https://x.com/pepelayer_2?t=jSnhsG27za6KV4CVWsRP8A&amp;s=09">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="fab fa-discord"></i>
+                <i class="fab fa-instagram"></i>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://t.me/PEPELAYER_2">
                 <i class="fab fa-telegram"></i>
               </a>
             </li>
@@ -52,13 +52,13 @@ function Footer() {
           <h3>Quick Support</h3>
           <ul>
             <li>
-              <a href="#">Support</a>
+              <a href="mailto:support@pepelayer2.com">Support</a>
             </li>
             <li>
-              <a href="#">Marketing</a>
+              <a href="mailto:marketing@pepelayer2.com">Marketing</a>
             </li>
             <li>
-              <a href="#">info</a>
+              <a href="mailto:info@pepelayer2.com">info</a>
             </li>
             <li>
               <a href="#">Help Center</a>

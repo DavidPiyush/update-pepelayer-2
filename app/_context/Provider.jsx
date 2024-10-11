@@ -31,14 +31,7 @@ import {
 } from "@rainbow-me/rainbowkit/wallets";
 
 import { http, createConfig, WagmiProvider } from "wagmi";
-import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
-  sepolia,
-} from "wagmi/chains";
+import { mainnet, polygon, optimism, arbitrum, base, bsc } from "wagmi/chains";
 
 const connectors = connectorsForWallets(
   [
@@ -78,19 +71,21 @@ export const config = createConfig({
   connectors,
   chains: [
     { ...mainnet },
-    { ...sepolia },
-    { ...polygon  },
-    { ...optimism  },
+    // { ...sepolia },
+    { ...polygon },
+    { ...optimism },
     { ...arbitrum },
     { ...base },
+    { ...bsc },
   ],
   transports: {
     [mainnet.id]: http(),
-    [sepolia.id]: http(),
+    // [sepolia.id]: http(),
     [polygon.id]: http(),
     [optimism.id]: http(),
     [arbitrum.id]: http(),
     [base.id]: http(),
+    [bsc.id]: http(),
   },
 });
 

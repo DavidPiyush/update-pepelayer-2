@@ -7,6 +7,7 @@ import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css";
 
 import Button from "./Button";
+import Link from "next/link";
 
 // import AboutImg from "@/public/pepe-About.png";
 
@@ -27,13 +28,21 @@ function About() {
             About $pepe
           </h2>
           <p className="text-[12px] lg:text-lg  text-[#eee] text-center ">
-            Introducing $PEPE: The ultimate meme coin with a colossal supply of
-            100 billion tokens. Our token features 65% liquidity locked for one
-            year for unmatched stability and a 5% transaction tax to fuel
-            continuous growth. Dive into the $PEPE experience and ride the wave
-            of innovation in the crypto world!
+            Welcome to the world of $PEPE, the ultimate meme coin poised to
+            redefine the crypto landscape! With an astonishing supply of 100
+            billion tokens, $PEPE is not just another cryptocurrency; it’s a
+            movement. Our robust ecosystem features 65% of liquidity locked for
+            one full year, ensuring unwavering stability and fostering investor
+            confidence. Plus, our innovative 5% transaction tax fuels continuous
+            growth and empowers community-driven initiatives. Join a vibrant,
+            passionate community that celebrates the playful spirit of memes
+            while unlocking real-world potential. Embrace the $PEPE experience
+            and ride the wave of innovation, where every transaction contributes
+            to a brighter, more prosperous future in the crypto universe!
           </p>
-          <Button className="px-24 bg-primary-btn-color">Join AirDrop</Button>
+          <Button className="px-24 bg-primary-btn-color">
+            <Link href="/airDrop">Join AirDrop</Link>
+          </Button>
         </article>
         <article className="relative " data-aos="fade-left">
           <img

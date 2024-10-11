@@ -1,22 +1,49 @@
 "use client";
 import Link from "next/link";
+import { signIn, signOut } from "next-auth/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount } from "wagmi"; // Use Wagmi's useAccount to get connected user
 import { usePathname } from "next/navigation";
 import { toast } from "react-hot-toast"; // Import toast for notifications
-
 import Button from "./Button";
 
 function Navbar({ isOpen, setIsOpen }) {
   const pathname = usePathname();
+  const { address, isConnected } = useAccount(); // Get user's address and connection status
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleSignIn = async () => {
+    if (isConnected && address) {
+      // Initiate the sign-in process
+      const result = await signIn("credentials", {
+        address,
+        redirect: false, // Avoid redirect after sign-in
+      });
+
+      console.log(result);
+      if (result?.error) {
+        toast.error("Sign-in failed!");
+      } else {
+        toast.success("Signed in successfully!");
+      }
+    } else {
+      toast.error("Please connect your wallet first!");
+    }
+  };
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+    toast.success("Signed out successfully!");
+  };
+
   return (
     <nav
       className={`lg:flex ${
         isOpen ? "block" : "hidden"
-      } lg:block  transition-all duration-300`}
+      } lg:block transition-all duration-300`}
     >
       <ul className="flex gap-12 items-center lg:flex-row flex-col">
         {pathname === "/" && (
@@ -60,6 +87,24 @@ function Navbar({ isOpen, setIsOpen }) {
                 Roadmap
               </Link>
             </li>
+            <ConnectButton /> {/* RainbowKit's ConnectButton */}
+            {/* Show Sign In/Sign Out based on connection status */}
+            {isConnected && (
+              <>
+                <Button
+                  className={"px-10 bg-secondary-btn-color"}
+                  onClick={handleSignIn}
+                >
+                  Sign In
+                </Button>
+                <Button
+                  className={"px-10 bg-secondary-btn-color"}
+                  onClick={handleSignOut}
+                >
+                  Sign Out
+                </Button>
+              </>
+            )}
           </>
         )}
 

@@ -7,6 +7,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import Header from "./_components/Header";
 import ToasterContext from "./_context/ToasterContext";
+import SessionsProvider from "./_context/SessionsProvider";
 
 // font family
 const poppins = Poppins({
@@ -39,8 +40,10 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${poppins.className} scroll-smooth overflow-x-hidden `}>
         <Providers>
-          <ToasterContext />
-          {children}
+          <SessionsProvider>
+            <ToasterContext />
+            {children}
+          </SessionsProvider>
         </Providers>
       </body>
     </html>

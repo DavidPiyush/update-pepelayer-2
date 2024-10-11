@@ -7,6 +7,7 @@ import Button from "./Button";
 import { useState, useEffect } from "react";
 import AOS from "aos"; // Import AOS
 import "aos/dist/aos.css"; // Import AOS styles
+import { handleCopy } from "../_utlis/CopyToClipboard";
 
 function Feature() {
   useEffect(() => {
@@ -15,17 +16,18 @@ function Feature() {
     });
   }, []);
 
-  const handleCopy = async (address) => {
-    try {
-      await navigator.clipboard.writeText(address); // Copy the address to clipboard
-      toast.success("Address copied!"); // Show success message
-    } catch (err) {
-      toast.error("Failed to copy the address."); // Handle any copy errors
-    }
-  };
+  
+  // const handleCopy = async (address) => {
+  //   try {
+  //     await navigator.clipboard.writeText(address); // Copy the address to clipboard
+  //     toast.success("Address copied!"); // Show success message
+  //   } catch (err) {
+  //     toast.error("Failed to copy the address."); // Handle any copy errors
+  //   }
+  // };
 
   return (
-    <section className="lg:mt-0 mt-[234px]" id="roadmap">
+    <section className="lg:mt-0 mt-[440px]" id="roadmap">
       <div className="container-div py-12 lg:grid grid-cols-2 gap-20 items-center ">
         <div className="relative p-8 lg:p-0" data-aos="fade-left">
           {" "}

@@ -3,7 +3,7 @@ function Purchased() {
       <article>
         <div>
           <p className="bg-blue-100 text-blue-800 text-xl text-center  me-2 px-2.5 py-3 rounded dark:bg-blue-900 dark:text-blue-300 mb-4 font-semibold ">
-            $1 Dollor = 60000 PEPE
+            $1 Dollor = 60,000 PEPE
           </p>
           <div className="w-full h-18 bg-green-100 rounded-lg flex justify-center items-center flex-col flex-1">
             <p className=" ">Your Purchased</p>

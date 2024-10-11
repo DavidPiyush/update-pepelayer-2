@@ -21,9 +21,7 @@ function Logo({ pClassName }) {
           className=" w-[56px] h-[56px] bg-white rounded-full  border-white"
         />
       </Link>
-      <h5 className={` text-2xl font-semibold text-white ${pClassName}`}>
-        PEPE LAYER 2
-      </h5>
+      <h5 className={` text-3xl font-semibold  ${pClassName}`}>PEPE LAYER 2</h5>
     </div>
   );
 }

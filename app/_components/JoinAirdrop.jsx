@@ -7,6 +7,7 @@ import "aos/dist/aos.css"; // Import AOS styles
 import { cardData } from "../_data/card";
 import Button from "./Button";
 import cardImage from "@/public/pattern-how.png";
+import Link from "next/link";
 
 function JoinAirdrop() {
   useEffect(() => {
@@ -64,7 +65,7 @@ function JoinAirdrop() {
                 </p>
                 {data.button && (
                   <Button className="px-20 py-2 text-base bg-primary-btn-color">
-                    {data.button}
+                    <Link href={data.link}>{data.button}</Link>
                   </Button>
                 )}
               </article>

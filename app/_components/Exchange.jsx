@@ -12,7 +12,7 @@ import Button from "./Button";
 import Input from "./Input";
 import Select from "./Select";
 import { calculatePepeCoinAmount } from "@/app/_utlis/convertEtherToPepe";
-import timerFunction from "../_utlis/timer";
+// import timerFunction from "./timer";
 import MiniSpinner from "./MiniSpinner";
 
 function Exchange() {
@@ -27,9 +27,9 @@ function Exchange() {
   const { isSuccess: isConfirmed, error: receiptError } =
     useWaitForTransactionReceipt();
 
-  useEffect(() => {
-    timerFunction(); // Call the timer function
-  }, []);
+  // useEffect(() => {
+  //   timerFunction(); // Call the timer function
+  // }, []);
 
   // Handle input change for ETH amount
   function handleInputChange(e) {

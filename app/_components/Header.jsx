@@ -61,8 +61,8 @@ function Header({ className }) {
   };
 
   //display: grid;
-    //grid-auto-flow: column;
-    //justify-content: space-between;
+  //grid-auto-flow: column;
+  //justify-content: space-between;
   return (
     <header
       className={`${className} z-50 relative transition-all duration-300 `}
@@ -70,7 +70,7 @@ function Header({ className }) {
     >
       <div className="lg:grid lg:grid-flow-col lg:justify-between lg:container-div">
         <div className="container-div flex items-center  px-8 py-5 justify-between">
-          <Logo />
+          <Logo pClassName="text-white" />
           <button
             className="lg:hidden p-2 rounded focus:outline-none"
             onClick={toggleMenu}

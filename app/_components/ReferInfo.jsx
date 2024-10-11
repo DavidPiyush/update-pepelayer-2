@@ -1,5 +1,21 @@
-import '@/app/_styles/style.css'
-function ReferInfo() {
+"use client";
+import { useState } from "react";
+
+import "@/app/_styles/style.css";
+import generateRandomToken from "../_utlis/tokenGenerator";
+import { handleCopy } from "../_utlis/CopyToClipboard";
+import { Toaster } from "react-hot-toast";
+
+const randomCode = generateRandomToken();
+
+function ReferInfo({ referCode, referUserCount, referBalance }) {
+  // const [token ,setToken] = useState([0])
+
+  const baseUrl = window.location.origin;
+  //token.length>0 ? token: ""
+
+  const referLink = referCode ? `${baseUrl}/refer/${referCode}` : "";
+
   return (
     <section id="referralInfo" class="section-el ">
       <div class="infoBox ">
@@ -9,22 +25,28 @@ function ReferInfo() {
           id="referralLink"
           class="input"
           readonly=""
-          value="https://pepelayer2.com/refer/0"
+          value={referLink}
         />
-        <button id="copyLinkButton button">Copy Link</button>
+        <button
+          id="copyLinkButton button"
+          onClick={() => handleCopy(referLink)}
+        >
+          Copy Link
+        </button>
       </div>
       <div class="infoBox">
         <h3>Your Referrals</h3>
         <p>
-          <span id="referralCount">0</span> Friends Referred
+          <span id="referralCount">{referUserCount || 0}</span> Friends Referred
         </p>
       </div>
       <div class="infoBox">
         <h3>Earnings From Referrals</h3>
         <p>
-          <span id="referralEarnings">0</span> Points Earned
+          <span id="referralEarnings">{referBalance || 0}</span> Points Earned
         </p>
       </div>
+      h<Toaster />
     </section>
   );
 }
