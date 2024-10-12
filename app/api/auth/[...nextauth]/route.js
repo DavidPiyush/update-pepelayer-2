@@ -1,4 +1,3 @@
-// pages/api/auth/[...nextauth].js
 import User from "@/models/UserModel";
 import { connectToDB } from "@/mongodb";
 import NextAuth from "next-auth";
@@ -7,58 +6,66 @@ import CredentialsProvider from "next-auth/providers/credentials";
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
-      name: "MetaMask",
+      name: "metamask",
       credentials: {
-        address: { type: "text" }, // Specify that `address` is expected
+        address: { type: "text" },
       },
       async authorize(credentials, req) {
-        const { address } = credentials;
-
-        if (!address) {
-          throw new Error("Wallet address is missing.");
+        console.log(credentials, "⛔⛔⛔");
+        if (!credentials || !credentials.address) {
+          throw new Error("Invalid address");
         }
 
-          await connectToDB();
-        console.log("Received MetaMask address:", address);
+        // Ensure the database connection is established
+        await connectToDB();
 
-        // Check if user exists in MongoDB
-        const user = await User.findOne({ ethereumId: address });
+        // Fetch the user from MongoDB using the Ethereum address
+        const user = await User.findOne({
+          ethereumId: credentials.address.toLowerCase(),
+        });
 
-        // If user doesn't exist, consider creating one here
+        console.log(user, "🚀🚀🚀🚀");
+
         if (!user) {
-          console.log("User not found, creating a new one.");
-          const newUser = await User.create({
-            ethereumId: address
-          });
-          return newUser; // Return the newly created user
+          throw new Error("Invalid user");
         }
 
-        // If user exists, return the user object to NextAuth.js
-        return user;
+        // Return user object with Ethereum ID for the session
+        return {
+          id: user._id.toString(),
+          ethereumId: user.ethereumId,
+          name: user.name, // Assuming user has a name field
+          email: null, // No email for wallet-based auth
+        };
       },
     }),
   ],
-
-  secret: process.env.NEXTAUTH_SECRET, // Ensure this is set in your .env.local file
+  secret: process.env.NEXTAUTH_SECRET,
 
   callbacks: {
     async session({ session, token }) {
-      console.log(session, token, "this from callbacks ❌❌ ");
-      // Extend the session object with the user from the database
+      console.log(session, token, "⭐⭐⭐");
 
+      // Find the MongoDB user based on Ethereum ID from the session
       const mongodbUser = await User.findOne({
-        ethereumId: session?.user.ethereumId,
+        ethereumId: token.ethereumId, // Use token.ethereumId, assuming it's set in the JWT
       });
 
-      if (!mongodbUser) {
-        throw new Error("User not found in session callback!");
-      }
+      console.log(mongodbUser, "🤢🤢🤢");
 
-      // Merge MongoDB user with session
+      // Ensure the session is correctly populated with MongoDB user data
       session.user.id = mongodbUser._id.toString();
-      session.user = { ...session.user, ...mongodbUser._doc }; // Assuming _doc has the right structure
+      session.user = { ...session.user, ...mongodbUser._doc }; // Merge user data from MongoDB
 
-      return session;
+      return session; // Return the updated session object
+    },
+
+    async jwt({ token, user }) {
+      // Attach Ethereum ID to the JWT token when user logs in
+      if (user) {
+        token.ethereumId = user.ethereumId;
+      }
+      return token;
     },
   },
 });

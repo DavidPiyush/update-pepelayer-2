@@ -46,7 +46,7 @@ function ReferInfo({ referCode, referUserCount, referBalance }) {
           <span id="referralEarnings">{referBalance || 0}</span> Points Earned
         </p>
       </div>
-      h<Toaster />
+      <Toaster />
     </section>
   );
 }

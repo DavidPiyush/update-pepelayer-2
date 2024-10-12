@@ -63,7 +63,7 @@ function Tokomonic() {
                 <p class="border-[7px] border-[#7deada] w-8 h-8 rounded-full"></p>
                 <div>
                   <h6 className="text-white text-lg font-semibold">1 Dollar</h6>
-                  <p class="text-sm text-[#ccc]">60,000 L2PEPE</p>
+                  <p class="text-sm text-[#ccc]">16,000 L2PEPE</p>
                 </div>
               </li>
               <li className="flex gap-3">

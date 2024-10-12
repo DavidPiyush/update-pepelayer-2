@@ -7,7 +7,7 @@ export const GET = async (req, res) => {
     await connectToDB();
     // console.log(User.find());
     const allUsers = await User.find();
-    // console.log(allUsers);
+    console.log(allUsers);
 
     return NextResponse.json(allUsers); // Use NextResponse to format the response
   } catch (err) {

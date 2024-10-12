@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Bubble from "./Bubble";
 import Footer from "./Footer";
 import InfoBox from "./InfoBox";
@@ -10,6 +10,8 @@ import ReferWork from "./ReferWork";
 import Task from "./Task";
 import "@/app/_styles/style.css";
 import { useSession } from "next-auth/react";
+import Spinner from "./Spinner";
+import { userData } from "../_data/FetchAPI";
 
 function ReferAndEarn() {
   const [referCode, setReferCode] = useState(null);
@@ -18,72 +20,67 @@ function ReferAndEarn() {
   const [referUserCount, setReferUserCount] = useState(null);
   const [totalBalance, setTotalBalance] = useState(null);
   const [totalEarnDay, setTotalEarnDay] = useState(null);
+  const [loading, setLoading] = useState(true); // State for loading
 
-  const { data: session } = useSession();
-  const ethereumId = session?.user.ethereumId;
-  console.log(ethereumId, "this from line 39");
+  const { data: session, status } = useSession();
+  const ethereumId = session?.user?.ethereumId?.toLowerCase(); // Make sure ethereumId is lowercase
 
-  async function userData() {
+  console.log(ethereumId, "this from comming from session");
+  useEffect(() => {
+    if (status === "authenticated" && ethereumId) {
+      fetchUserData(ethereumId);
+    } else {
+      // Clear state if the session is invalid or user is logged out
+      resetState();
+      setLoading(false); // Stop the loader when session is invalid
+    }
+  }, [status, ethereumId]);
+
+  const fetchUserData = async (ethereumId) => {
     try {
-      const res = await fetch(`/api/users/${ethereumId}`, {
-        method: "GET",
-      });
+      setLoading(true); // Start loading when fetching data
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
+      const user = await userData(ethereumId, setLoading); // Fetch user data from API
+      if (user) {
+        // If user data exists, update state
+        setReferCode(user.referralCode);
+        setReferBalance(user.referEarn);
+        setReferUserCount(user.referredUsers.length);
+        setTodayClaim(user.todayClaim);
+        setTotalEarnDay(user.totalEarnDay);
+        setTotalBalance(user.totalBalance);
       }
-
-      const {
-        totalBalance,
-        referredUsers,
-        todayClaim,
-        totalEarnDay,
-        socialLinks,
-        referEarn,
-        referralCode,
-      } = await res.json();
-
-      // setting data in ui
-      setReferCode(referralCode);
-      setReferBalance(referEarn);
-      setReferUserCount(referredUsers.length);
-      setTodayClaim(todayClaim);
-      setTotalEarnDay(totalEarnDay);
-      setTotalBalance(totalBalance);
-
-      console.log(data);
     } catch (error) {
       console.error("Error fetching user data:", error);
+    } finally {
+      setLoading(false); // Stop loading after data is fetched or error occurs
     }
+  };
+
+  // Function to reset state when no session is found or user logs out
+  const resetState = () => {
+    setReferCode(null);
+    setReferBalance(null);
+    setReferUserCount(null);
+    setTodayClaim(null);
+    setTotalBalance(null);
+    setTotalEarnDay(null);
+  };
+
+  // Render loading spinner if data is still loading
+  if (loading) {
+    return (
+      <div className="flex justify-center h-screen items-center bg-[#333] gap-5">
+        <Spinner /> {/* Render spinner */}
+        <p className="text-base text-white">Loading data...</p>
+      </div>
+    );
   }
-
-  userData();
-
-  // allUserData();
-  // const createUser = async () => {
-  //   const response = await fetch("/api/user/create", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       ethereumId: "0x4610602c2c5e51a043ec74ecdfc1123b8aac9ffr",
-  //       totalBalance: 0,
-  //       referralCode: "ee794d-b724-4b7b-913f-80b19fa24a9c",
-  //       todayClaim: 0,
-  //       totalEarnDay: 0,
-  //       referEarn: 0,
-  //     }),
-  //   });
-
-  //   const data = await response.json();
-  //   console.log(data);
-  // };
 
   return (
     <section>
       <ReferHeader totalBalance={totalBalance} />
-      <div class="relative w-full overflow-hidden bg-blue-500 text-white py-2 shadow-lg flex items-center">
+      <div className="relative w-full overflow-hidden bg-blue-500 text-white py-2 shadow-lg flex items-center">
         <div className="sticky top-0 bg-blue-500 text-white font-bold px-2 z-10 whitespace-nowrap">
           Instruction:
         </div>
@@ -92,7 +89,7 @@ function ReferAndEarn() {
           points will be converted into PEPE coins.
         </div>
       </div>
-      <div className="container-div space-y-10 ">
+      <div className="container-div space-y-10">
         <Task totalEarnDay={totalEarnDay} />
         <InfoCard />
       </div>
