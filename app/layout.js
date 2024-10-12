@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <SessionsProvider>
             <ToasterContext />
-            <CookieConsent />
+            {/* <CookieConsent /> */}
             {children}
           </SessionsProvider>
         </Providers>

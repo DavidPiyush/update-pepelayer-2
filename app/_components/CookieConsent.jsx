@@ -74,11 +74,11 @@ import { cookies } from "next/headers";
 
 // export default CookieConsent;
 
-function CookieConsent() {
-  const cookieStore = cookies();
-  const userId = cookieStore.get("user_id");
-  console.log(userId, cookieStore);
-  return <div>{userId && <p>User ID: {userId}</p>}</div>;
-}
+// function CookieConsent() {
+//   const cookieStore = cookies();
+//   const userId = cookieStore.get("user_id");
+//   console.log(userId, cookieStore);
+//   return <div>{userId && <p>User ID: {userId}</p>}</div>;
+// }
 
-export default CookieConsent;
+// export default CookieConsent;
