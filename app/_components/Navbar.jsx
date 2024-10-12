@@ -40,15 +40,18 @@ function Navbar({ isOpen, setIsOpen }) {
           });
 
           if (res?.error) {
-            toast.error("Signed in Failed!⛔⛔⛔");
+            // toast.error("Signed in Failed!⛔⛔⛔");
+            console.log("Signed in Failed!⛔⛔⛔");
           } else {
-            toast.success("Signed in successfully! 🚀🚀🚀");
+            // toast.success("Signed in successfully! 🚀🚀🚀");
+            console.log("Signed in successfully! 🚀🚀🚀");
           }
         } else {
-          toast.error("User does not exist. Please create an account.");
+          // toast.error("User does not exist. Please create an account.");
+          console.log("User does not exist. Please create an account.");
         }
       } catch (error) {
-        toast.error("An error occurred during sign in.");
+        console.log("An error occurred during sign in.");
       }
     }
   };
@@ -63,7 +66,7 @@ function Navbar({ isOpen, setIsOpen }) {
   // THIS FOR LOGOUT
   const handleSignOut = async () => {
     await signOut({ redirect: false });
-    toast.success("signed out sucessfully!");
+    // toast.success("signed out sucessfully!");
   };
 
   if (!isConnected && !address) {
@@ -72,35 +75,35 @@ function Navbar({ isOpen, setIsOpen }) {
 
   // THIS FOR CREATING ACCOUNT
 
-    const handleCreateUser = async () => {
-      const userDetails = {
-        ethereumId: address.toLowerCase(),
-        referralCode: token,
-      };
-
-      try {
-        // Pass address and setIsLoading to userData
-        const existingUser = await userData(
-          address.toLowerCase(),
-          setIsCreatingUser
-        );
-
-        if (existingUser) {
-          toast.error("User already exists. Please log in.");
-        } else {
-          const result = await createUser(userDetails, setIsCreatingUser);
-          if (result) {
-            toast.success("User created successfully!");
-            await handleSignIn();
-          } else {
-            toast.error("Failed to create user.");
-          }
-        }
-      } catch (error) {
-        toast.error("An error occurred while creating the user.");
-        console.log(error)
-      }
+  const handleCreateUser = async () => {
+    const userDetails = {
+      ethereumId: address.toLowerCase(),
+      referralCode: token,
     };
+
+    try {
+      // Pass address and setIsLoading to userData
+      const existingUser = await userData(
+        address.toLowerCase(),
+        setIsCreatingUser
+      );
+
+      if (existingUser) {
+        // toast.error("User already exists. Please log in.");
+      } else {
+        const result = await createUser(userDetails, setIsCreatingUser);
+        if (result) {
+          // toast.success("User created successfully!");
+          await handleSignIn();
+        } else {
+          // toast.error("Failed to create user.");
+        }
+      }
+    } catch (error) {
+      // toast.error("An error occurred while creating the user.");
+      console.log(error);
+    }
+  };
 
   return (
     <nav
@@ -154,13 +157,13 @@ function Navbar({ isOpen, setIsOpen }) {
             {isConnected &&
               address && ( // Check if user status is verified
                 <>
-                  <Button
+                  {/* <Button
                     onClick={handleSignIn}
                     disabled={isSignIn.signIn}
                     className="bg-[#1a1b1f] hover:bg-[#2d2f36] create-btn text-base"
                   >
                     {isSignIn.signIn ? <MiniSpinner /> : "Login"}
-                  </Button>
+                  </Button> */}
                   <Button
                     onClick={handleCreateUser}
                     disabled={isCreatingUser.createUser}

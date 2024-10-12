@@ -11,12 +11,12 @@ import Task from "./Task";
 import "@/app/_styles/style.css";
 import { useSession } from "next-auth/react";
 import Spinner from "./Spinner";
-import { userData } from "../_data/FetchAPI";
+import { updateUser, userData } from "../_data/FetchAPI";
 
 function ReferAndEarn() {
   const [referCode, setReferCode] = useState(null);
   const [referBalance, setReferBalance] = useState(null);
-  const [todayClaim, setTodayClaim] = useState(null);
+  // const [todayClaim, setTodayClaim] = useState(null);
   const [referUserCount, setReferUserCount] = useState(null);
   const [totalBalance, setTotalBalance] = useState(null);
   const [totalEarnDay, setTotalEarnDay] = useState(null);
@@ -46,7 +46,7 @@ function ReferAndEarn() {
         setReferCode(user.referralCode);
         setReferBalance(user.referEarn);
         setReferUserCount(user.referredUsers.length);
-        setTodayClaim(user.todayClaim);
+        // setTodayClaim(user.todayClaim);
         setTotalEarnDay(user.totalEarnDay);
         setTotalBalance(user.totalBalance);
       }
@@ -62,7 +62,7 @@ function ReferAndEarn() {
     setReferCode(null);
     setReferBalance(null);
     setReferUserCount(null);
-    setTodayClaim(null);
+    // setTodayClaim(null);
     setTotalBalance(null);
     setTotalEarnDay(null);
   };
@@ -77,6 +77,26 @@ function ReferAndEarn() {
     );
   }
 
+  // UPDATING THE USER --->
+
+  // const updateUserAccount = async () => {
+  //   try {
+  //     const updateData = {
+  //       totalBalance: 5000,
+  //       todayClaim: 6000,
+  //       totalEarnDay: 7000,
+  //       referEarn: 20000,
+  //     };
+  //     const res = await updateUser(ethereumId, updateData, setLoading);
+  //     console.log(res);
+  //   } catch (error) {
+  //     console.log(error, " : Error updating user");
+  //   }
+  // };
+
+
+  //FOR REFERED USER
+  
   return (
     <section>
       <ReferHeader totalBalance={totalBalance} />
@@ -94,7 +114,7 @@ function ReferAndEarn() {
         <InfoCard />
       </div>
       <InfoBox />
-      <Bubble todayClaim={todayClaim} />
+      <Bubble />
       <ReferInfo
         referCode={referCode}
         referUserCount={referUserCount}

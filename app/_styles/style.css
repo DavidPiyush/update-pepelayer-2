@@ -939,46 +939,6 @@ textarea {
 
 /* feature in */
 
-.scrolling-logos-section {
-  background-color: #202020; /* Light background color */
-  padding: 40px 20px; /* Padding for top and bottom */
-  overflow: hidden; /* Hide overflow for scrolling effect */
-}
-
-.scrolling-logos-heading {
-  text-align: center; /* Center the heading */
-  font-size: 2em; /* Heading font size */
-  margin-bottom: 20px; /* Spacing below the heading */
-  color: #ffd700; /* Dark text color */
-}
-
-.scrolling-logos {
-  position: relative; /* Relative positioning for animation */
-  width: 100%; /* Full width */
-  overflow: hidden; /* Hide overflow for smooth scrolling */
-}
-
-.scrolling-logos-inner {
-  display: flex; /* Flexbox for horizontal layout */
-  width: calc(200%); /* Width to allow for two sets of logos */
-  animation: marquee 20s linear infinite; /* Continuous scrolling effect */
-}
-
-.scrolling-logos-inner img {
-  height: 30px; /* Fixed height for logos */
-  margin: 0 40px; /* Equal spacing between logos */
-}
-
-/* Animation to move logos from right to left */
-@keyframes marquee {
-  0% {
-    transform: translateX(0); /* Start from the beginning */
-  }
-  100% {
-    transform: translateX(-50%); /* Move left by 50% of the total width */
-  }
-}
-
 /* Pause the animation on hover */
 .scrolling-logos:hover .scrolling-logos-inner {
   animation-play-state: paused; /* Pause animation when hovering */
@@ -1200,4 +1160,103 @@ textarea {
   100% {
     transform: translate(-100%);
   }
+}
+
+/* styles.css */
+
+.scrolling-logos-section {
+  position: relative;
+  width: 100%;
+  background-color: #202020;
+  padding: 12px 50px;
+  overflow: hidden;
+  height: 200px;
+}
+
+.scrolling-logos-container {
+  position: relative;
+  width: 100%;
+  height: 80px; /* Adjust height as needed */
+}
+
+.scrolling-logos-heading {
+  text-align: center;
+  font-size: 48px; /* Adjust font size as needed */
+  margin-bottom: 10px;
+  color: #e5b700;
+}
+
+.scrolling-logos {
+  white-space: nowrap; /* Prevent logos from wrapping */
+  animation: scroll 20s linear infinite; /* Adjust duration for speed */
+}
+
+.scrolling-logos-inner {
+  display: inline-flex; /* Allows items to align in a row */
+}
+
+.scrolling-logos-inner img {
+  height: 30px; /* Set a uniform height for logos */
+  margin: 10px 15px; /* Adjust spacing between logos */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%); /* Start off-screen right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move off-screen left */
+  }
+}
+
+/* Animation to move logos from right to left */
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* Start from the beginning */
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* styles/cookie.css */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000; /* Background color */
+  color: #fff; /* Text color */
+  padding: 20px;
+  border-top: 2px solid #047857; /* Green border on top */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.cookie-banner p {
+  text-align: center;
+  margin: 0 0 15px;
+  font-size: 14px; /* Smaller text for the message */
+}
+
+.cookie-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Space between buttons */
+}
+
+.cookie-buttons button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #047857; /* Button background color */
+  color: white; /* Button text color */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.cookie-buttons button:hover {
+  background-color: #036d45; /* Darker green on hover */
 }

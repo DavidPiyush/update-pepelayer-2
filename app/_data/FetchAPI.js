@@ -29,7 +29,7 @@ export const createUser = async (userDetails, setIsLoading) => {
     // Show loader before starting the request
     setIsLoading(true);
 
-    console.log(userDetails);
+    // console.log(userDetails);
 
     const res = await fetch("/api/users/create", {
       method: "POST",
@@ -46,7 +46,7 @@ export const createUser = async (userDetails, setIsLoading) => {
     }
 
     const data = await res.json();
-    console.log("User created successfully:", data);
+    // console.log("User created successfully:", data);
 
     // Return the created user data
     return data;
@@ -65,7 +65,7 @@ export const updateUser = async (ethereumId, updatedData, setIsLoading) => {
     // Show loader before the request
     setIsLoading(true);
 
-    const res = await fetch(`/api/users/${ethereumId}`, {
+    const res = await fetch(`/api/users/${ethereumId}/update`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -73,6 +73,7 @@ export const updateUser = async (ethereumId, updatedData, setIsLoading) => {
       body: JSON.stringify(updatedData),
     });
 
+    console.log(res);
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
@@ -88,5 +89,26 @@ export const updateUser = async (ethereumId, updatedData, setIsLoading) => {
     // Hide loader in case of error
     setIsLoading(false);
     console.error("Error updating user:", error);
+  }
+};
+
+// Example function to set the referral code
+export const setReferralCode = async (referralCode) => {
+  try {
+    const response = await fetch('/api/cookie', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ referralCode }), // Send the referral code in the body
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || 'Failed to set referral code');
+    }
+    console.log(data.message); // Handle success
+  } catch (error) {
+    console.error('Error setting referral code:', error);
   }
 };

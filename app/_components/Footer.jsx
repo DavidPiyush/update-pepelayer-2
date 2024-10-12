@@ -79,7 +79,10 @@ function Footer() {
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 Pepe Memes Coin. All Rights Reserved.</p>
+        <p>
+          &copy; {`${new Date().getFullYear()}`} Pepe Layer2 Campaign. All
+          rights reserved.
+        </p>
         <ul class="footer-bottom-links">
           <li>
             <a href="#">Privacy Policy</a>

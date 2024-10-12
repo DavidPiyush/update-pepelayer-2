@@ -14,7 +14,7 @@ function ReferInfo({ referCode, referUserCount, referBalance }) {
   const baseUrl = window.location.origin;
   //token.length>0 ? token: ""
 
-  const referLink = referCode ? `${baseUrl}/refer/${referCode}` : "";
+  const referLink = referCode ? `${baseUrl}/referral?code=${referCode}` : "";
 
   return (
     <section id="referralInfo" class="section-el ">

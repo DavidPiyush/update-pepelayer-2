@@ -18,8 +18,8 @@ export default function Home() {
   return (
     <main className="bg-[#000] overflow-x-hidden">
       {/* <section className="relative  lg:h-[120vh] h-[100vh]"> */}
-        <Header />
-        {/* <Image
+      <Header />
+      {/* <Image
           fill
           src={bgImage}
           alt="money-background"
@@ -27,7 +27,7 @@ export default function Home() {
           quality={50}
           className="object-cover object-top"
         /> */}
-        <Hero />
+      <Hero />
       {/* </section> */}
       <About />
       <Tokomonic />

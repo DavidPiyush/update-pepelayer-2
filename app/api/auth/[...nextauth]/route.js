@@ -11,7 +11,7 @@ const handler = NextAuth({
         address: { type: "text" },
       },
       async authorize(credentials, req) {
-        console.log(credentials, "⛔⛔⛔");
+        // console.log(credentials, "⛔⛔⛔");
         if (!credentials || !credentials.address) {
           throw new Error("Invalid address");
         }
@@ -24,7 +24,7 @@ const handler = NextAuth({
           ethereumId: credentials.address.toLowerCase(),
         });
 
-        console.log(user, "🚀🚀🚀🚀");
+        // console.log(user, "🚀🚀🚀🚀");
 
         if (!user) {
           throw new Error("Invalid user");
@@ -44,14 +44,14 @@ const handler = NextAuth({
 
   callbacks: {
     async session({ session, token }) {
-      console.log(session, token, "⭐⭐⭐");
+      // console.log(session, token, "⭐⭐⭐");
 
       // Find the MongoDB user based on Ethereum ID from the session
       const mongodbUser = await User.findOne({
         ethereumId: token.ethereumId, // Use token.ethereumId, assuming it's set in the JWT
       });
 
-      console.log(mongodbUser, "🤢🤢🤢");
+      // console.log(mongodbUser, "🤢🤢🤢");
 
       // Ensure the session is correctly populated with MongoDB user data
       session.user.id = mongodbUser._id.toString();

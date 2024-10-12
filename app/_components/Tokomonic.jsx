@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import tokomonicBg from "@/public/tokoenmic.png";
 import pieChart from "@/public/pie-chart.png";
+import MyPieChart from "./Chart";
 // top-[44rem] lg:top-[46rem]
 function Tokomonic() {
   return (
@@ -28,7 +29,7 @@ function Tokomonic() {
             The total supply of L2PEPE tokens will be allocated as follow
           </p>
         </div>
-        <div className="grid lg:grid-cols-2 lg: mt-16 lg:p-12  p-6">
+        <div className="grid lg:grid-cols-2 lg: mt-16 lg:p-12  p-6 justify-center justify-items-center">
           <div className="grid lg:grid-cols-2 gap-4">
             <ul className="space-y-6">
               <li className="flex gap-3">
@@ -59,13 +60,13 @@ function Tokomonic() {
                   <p class="text-sm text-[#ccc]">SOLANA</p>
                 </div>
               </li>
-              <li className="flex gap-3">
+              {/* <li className="flex gap-3">
                 <p class="border-[7px] border-[#7deada] w-8 h-8 rounded-full"></p>
                 <div>
                   <h6 className="text-white text-lg font-semibold">1 Dollar</h6>
                   <p class="text-sm text-[#ccc]">16,000 L2PEPE</p>
                 </div>
-              </li>
+              </li> */}
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#997dea] w-8 h-8 rounded-full"></p>
                 <div>
@@ -78,20 +79,21 @@ function Tokomonic() {
             </ul>
             <ul className="space-y-6">
               <li className="flex gap-3">
-                <p class="border-[7px] border-[#e66392] w-8 h-8 rounded-full"></p>
+                <p class="border-[7px] border-[#e8c3b9] w-8 h-8 rounded-full"></p>
                 <div>
                   <h6 className="text-white text-lg font-semibold">Presale</h6>
-                  <p class="text-sm text-[#ccc]">10% Allocation ( 1B tokens)</p>
+                  <p class="text-sm text-[#ccc]">20% Allocation ( 1B tokens)</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#f5a67e] w-8 h-8 rounded-full"></p>
                 <div>
                   <h6 className="text-white text-lg font-semibold">Airdrop</h6>
-                  <p class="text-sm text-[#ccc]">60% (6B L2PEPE)</p>
+                  <p class="text-sm text-[#ccc]">20% (Distrubiton)</p>
+                  <p class="text-sm text-[#ccc]">40% (Future Gamming reward)</p>
                 </div>
               </li>
-              <li className="flex gap-3">
+              {/* <li className="flex gap-3">
                 <p class="border-[7px] border-[#94f57e] w-8 h-8 rounded-full"></p>
                 <div>
                   <h6 className="text-white text-lg font-semibold">
@@ -99,13 +101,11 @@ function Tokomonic() {
                   </h6>
                   <p class="text-sm text-[#ccc]">40% (Future Gamming reward)</p>
                 </div>
-              </li>
+              </li> */}
               <li className="flex gap-3">
                 <p class="border-[7px] border-[#1eb8e0] w-8 h-8 rounded-full"></p>
                 <div>
-                  <h6 className="text-white text-lg font-semibold">
-                    Ecosystem & Partnerships
-                  </h6>
+                  <h6 className="text-white text-lg font-semibold">Team</h6>
                   <p class="text-sm text-[#ccc]">10% Allocation (1B Tokens)</p>
                 </div>
               </li>
@@ -122,14 +122,15 @@ function Tokomonic() {
             </ul>
           </div>
           <div className="relative lg:h-[60vh] h-[25vh] mt-6 lg:mt-0">
-            <Image
+            {/* <Image
               src={pieChart}
               fill
               alt="pie chart"
               className="object-cover object-center"
               quality={90}
               palaceholder="blur"
-            />
+            /> */}
+            <MyPieChart />
           </div>
         </div>
       </div>

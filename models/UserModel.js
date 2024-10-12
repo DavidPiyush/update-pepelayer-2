@@ -42,14 +42,8 @@ const userSchema = new mongoose.Schema(
         message: "socialLinks array contains duplicate values",
       },
     },
-    lastClickTime: {
-      type: Date,
-      default: Date.now,
-    },
-    clickCount: {
-      type: Number,
-      default: 0,
-    },
+    timerStart: { type: Date },
+    timerExpired: { type: Boolean, default: false },
     timerStart: {
       type: Date,
     },

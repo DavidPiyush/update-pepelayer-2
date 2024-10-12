@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { IoCopyOutline } from "react-icons/io5";
 import toast, { Toaster } from "react-hot-toast"; // Import toast
-import featureBg from "@/public/feature-bg.jpeg";
+import featureBg from "@/public/pepe-token-bg.jpg";
 import Button from "./Button";
 import { useState, useEffect } from "react";
 import AOS from "aos"; // Import AOS
@@ -16,7 +16,6 @@ function Feature() {
     });
   }, []);
 
-  
   // const handleCopy = async (address) => {
   //   try {
   //     await navigator.clipboard.writeText(address); // Copy the address to clipboard

@@ -8,6 +8,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 import Header from "./_components/Header";
 import ToasterContext from "./_context/ToasterContext";
 import SessionsProvider from "./_context/SessionsProvider";
+import CookieConsent from "./_components/CookieConsent";
 
 // font family
 const poppins = Poppins({
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <SessionsProvider>
             <ToasterContext />
+            <CookieConsent />
             {children}
           </SessionsProvider>
         </Providers>
