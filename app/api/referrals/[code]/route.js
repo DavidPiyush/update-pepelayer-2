@@ -165,7 +165,6 @@
 //   }
 // };
 
-
 import tokenGenerator from "@/app/_utlis/tokenGenerator";
 import User from "@/models/UserModel";
 import { connectToDB } from "@/mongodb";
@@ -178,7 +177,7 @@ export const PATCH = async (req, { params }) => {
 
     // Get the referral code from the params and ethereumId from the request body
     const { code } = params;
-    const { ethereumId } = await req.json();
+    const { ethereumId, referAmount } = await req.json();
 
     console.log("Received ethereumId:", ethereumId, "Referral code:", code);
 
@@ -205,20 +204,6 @@ export const PATCH = async (req, { params }) => {
       });
     }
 
-    // Try to create the new referred user first
-    const newUser = await User.create({
-      ethereumId: ethereumId,
-      referralCode: tokenGenerator(),
-    });
-
-    console.log("New user created with referral link", newUser);
-
-    // Define todayClaim and totalEarnDay for calculating the new balance
-    const todayClaim = user.todayClaim || 0;
-    const totalEarnDay = user.totalEarnDay || 0;
-    const referEarn = user.referEarn || 0;
-
-    // Now, update the referrer’s record to add the new referral and update balance
     const updateData = {
       $push: {
         referredUsers: {
@@ -227,18 +212,31 @@ export const PATCH = async (req, { params }) => {
           status: "Active",
         },
       },
-      $inc: { referEarn: 1000 }, // Increment the referral earnings
       $inc: {
-        totalBalance:  1000
+        referEarn: referAmount, // Increment the referral earnings
+        totalBalance: referAmount, // Increment the total balance
       },
     };
 
-    // Update the referrer’s user in the database
+    
+
+    // Try to create the new referred user first
+    const newUser = await User.create({
+      ethereumId: ethereumId,
+      referralCode: tokenGenerator(),
+    });
+
+    console.log("New user created with referral link", newUser);
+
     const updatedUser = await User.findOneAndUpdate(
       { referralCode: code }, // Filter by referral code
       updateData, // Update referredUsers and balance
       { new: true } // Return the updated document
     );
+    // Now, update the referrer’s record to add the new referral and
+    console.log(updateData, "THIS FROM REFERRED USER ⭐⭐⭐");
+
+    // Update the referrer’s user in the database
 
     if (!updatedUser) {
       return new NextResponse("Failed to update referrer data", {

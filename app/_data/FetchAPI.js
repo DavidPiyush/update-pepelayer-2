@@ -64,6 +64,7 @@ export const updateUser = async (ethereumId, updatedData, setIsLoading) => {
   try {
     // Show loader before the request
     setIsLoading(true);
+    console.log(updatedData,ethereumId,"THIS FROM FETCH API")
 
     const res = await fetch(`/api/users/${ethereumId}/update`, {
       method: "PATCH",

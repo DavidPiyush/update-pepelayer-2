@@ -1,7 +1,7 @@
 import Link from "next/link";
 import TaskList from "./TaskList";
 
-function Task({ totalEarnDay }) {
+function Task({ totalEarnDay ,socialLink,setHref ,setReward}) {
   return (
     <section className=" flex items-center flex-col justify-between p-5 relative overflow-hidden">
       <div className="bg-[#ffffffe6] p-12 rounded-xl shadow-md shadow-[rgba(0, 0, 0, 0.15)] ">
@@ -15,7 +15,11 @@ function Task({ totalEarnDay }) {
           POINTS RATIO=1:1
         </span>
         <div id="tasks-list">
-          <TaskList />
+          <TaskList
+            socialLink={socialLink}
+            setHref={setHref}
+            setReward={setReward}
+          />
         </div>
         <div class="text-[1.6em] font-bold text-center mt-4 p-4 bg-yellow-300 text-gray-800 rounded-xl shadow-lg">
           <h3>

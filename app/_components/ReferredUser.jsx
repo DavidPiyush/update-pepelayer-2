@@ -73,7 +73,7 @@ function ReferredUser() {
   const code = search.get("code");
   const { address } = useAccount();
 
-  console.log(address)
+  console.log(address);
   // const { data: session, status } = useSession();
   // const ethereumId = session?.user?.ethereumId?.toLowerCase();
 
@@ -81,6 +81,7 @@ function ReferredUser() {
     try {
       const updateData = {
         ethereumId: address?.toLowerCase(),
+        referAmount: 1000,
       };
       const referUser = await updateReferredUser(
         code,

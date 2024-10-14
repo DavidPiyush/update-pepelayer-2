@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    referEarn: { type: Number, default: 0 },
+    referEarn: { type: Number, default: 0},
     referredUsers: [
       {
         ethereumId: { type: String, unique: true },

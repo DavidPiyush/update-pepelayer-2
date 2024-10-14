@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Bubble from "./Bubble";
 import Footer from "./Footer";
 import InfoBox from "./InfoBox";
@@ -11,7 +11,7 @@ import Task from "./Task";
 import "@/app/_styles/style.css";
 import { useSession } from "next-auth/react";
 import Spinner from "./Spinner";
-import { updateUser, userData } from "../_data/FetchAPI";
+import { createUser, updateUser, userData } from "../_data/FetchAPI";
 
 // function ReferAndEarn() {
 //   const [referCode, setReferCode] = useState(null);
@@ -221,121 +221,96 @@ import { updateUser, userData } from "../_data/FetchAPI";
 
 // export default ReferAndEarn;
 
+//setDailyClaim(res.todayClaim);
+//setTimerStart(res.timerStart);
+
 function ReferAndEarn() {
-  const [referCode, setReferCode] = useState(null);
-  const [referBalance, setReferBalance] = useState(null);
-  const [referUserCount, setReferUserCount] = useState(null);
-  const [totalBalance, setTotalBalance] = useState(null);
-  const [totalEarnDay, setTotalEarnDay] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [totalBalance, setTotalBalance] = useState(0);
+  const [totalEarnDay, setTotalEarnDay] = useState(0);
+  const [socialLink, setSocialLink] = useState([]);
+  const [dailyClaim, setDailyClaim] = useState(0);
+  const [timerStart, setTimerStart] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [referralCode, setReferralCode] = useState("");
+  const [referEarn, setReferEarn] = useState(0);
+  const [referCount, setReferCount] = useState(0);
+  const [href, setHref] = useState(null);
+  const [reward, setReward] = useState(null);
+  const [updateTimerStart, setUpdateTimerStart] = useState(null);
+  const [updateDailyClaim, setUpdateDailyClaim] = useState(0);
+  const [updateTimeExpired, setUpdateTimeExpired] = useState(true);
 
   const { data: session, status } = useSession();
   const ethereumId = session?.user?.ethereumId?.toLowerCase();
 
-  // State to store previous values for comparison
-  const [prevReferCode, setPrevReferCode] = useState(null);
-  const [prevReferBalance, setPrevReferBalance] = useState(null);
-  const [prevReferUserCount, setPrevReferUserCount] = useState(null);
-  const [prevTotalBalance, setPrevTotalBalance] = useState(null);
-  const [prevTotalEarnDay, setPrevTotalEarnDay] = useState(null);
+  // Fetch user data function
+  const fetchUserData = useCallback(async () => {
+    if (!ethereumId) return;
 
+    const user = await userData(ethereumId, setIsLoading);
+    setTotalBalance(user.totalBalance);
+    setReferralCode(user.referralCode);
+    setDailyClaim(user.todayClaim);
+    setTotalEarnDay(user.totalEarnDay);
+    setReferEarn(user.referEarn);
+    setSocialLink(user.socialLinks);
+    setTimerStart(user.timerStart);
+    setReferCount(user.referredUsers?.length);
+  }, [ethereumId]);
+
+  // Update user task function
+  const updateUserTask = useCallback(async () => {
+    if (ethereumId && href && reward) {
+      const updateData = {
+        socialLinks: [href], // Wrap href in an array if multiple links are expected
+        totalEarnDay: reward,
+        todayClaim: updateDailyClaim,
+        timerStart: updateTimerStart,
+        timerExpired: updateTimeExpired,
+      };
+
+      console.log({
+        ethereumId,
+        href,
+        reward,
+        updateDailyClaim,
+        updateTimerStart,
+        updateTimeExpired,
+      });
+
+
+      await updateUser(ethereumId, updateData, setIsLoading);
+      fetchUserData(); // Refetch data after update
+    }
+  }, [
+    ethereumId,
+    href,
+    reward,
+    updateDailyClaim,
+    updateTimerStart,
+    updateTimeExpired,
+    fetchUserData,
+  ]);
+
+  // Fetch user data on Ethereum ID change or session authentication
   useEffect(() => {
-    if (status === "authenticated" && ethereumId) {
-      fetchUserData(ethereumId);
-    } else {
-      resetState();
-      setLoading(false);
+    if (ethereumId) {
+      fetchUserData();
     }
-  }, [status, ethereumId]);
+  }, [ethereumId, fetchUserData]);
 
-  const fetchUserData = async (ethereumId) => {
-    try {
-      setLoading(true);
-      const user = await userData(ethereumId, setLoading);
-      if (user) {
-        // Compare with previous values and log changes
-        if (referCode !== user.referralCode) {
-          console.log(
-            "Referral Code changed:",
-            referCode,
-            "→",
-            user.referralCode
-          );
-        }
-        if (referBalance !== user.referEarn) {
-          console.log(
-            "Referral Balance changed:",
-            referBalance,
-            "→",
-            user.referEarn
-          );
-        }
-        if (referUserCount !== user.referredUsers.length) {
-          console.log(
-            "Referral User Count changed:",
-            referUserCount,
-            "→",
-            user.referredUsers.length
-          );
-        }
-        if (totalBalance !== user.totalBalance) {
-          console.log(
-            "Total Balance changed:",
-            totalBalance,
-            "→",
-            user.totalBalance
-          );
-        }
-        if (totalEarnDay !== user.totalEarnDay) {
-          console.log(
-            "Total Earnings For The Day changed:",
-            totalEarnDay,
-            "→",
-            user.totalEarnDay
-          );
-        }
-
-        // Update previous state with current values
-        setPrevReferCode(referCode);
-        setPrevReferBalance(referBalance);
-        setPrevReferUserCount(referUserCount);
-        setPrevTotalBalance(totalBalance);
-        setPrevTotalEarnDay(totalEarnDay);
-
-        // Update current state
-        setReferCode(user.referralCode);
-        setReferBalance(user.referEarn);
-        setReferUserCount(user.referredUsers.length);
-        setTotalEarnDay(user.totalEarnDay);
-        setTotalBalance(user.totalBalance);
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    } finally {
-      setLoading(false);
+  // Trigger task update when href or reward changes
+  useEffect(() => {
+    if (href && reward) {
+      updateUserTask(); // Call user update only when both href and reward are set
     }
-  };
-
-  const resetState = () => {
-    setReferCode(null);
-    setReferBalance(null);
-    setReferUserCount(null);
-    setTotalBalance(null);
-    setTotalEarnDay(null);
-  };
-
-  if (loading) {
-    return (
-      <div className="flex justify-center h-screen items-center bg-[#333] gap-5">
-        <Spinner />
-        <p className="text-base text-white">Loading data...</p>
-      </div>
-    );
-  }
+  }, [href, reward, updateUserTask]);
 
   return (
     <section>
-      <ReferHeader totalBalance={totalBalance} />
+      {status === "authenticated" && (
+        <ReferHeader totalBalance={totalBalance} />
+      )}
       <div className="relative w-full overflow-hidden bg-blue-500 text-white py-2 shadow-lg flex items-center">
         <div className="sticky top-0 bg-blue-500 text-white font-bold px-2 z-10 whitespace-nowrap">
           Instruction:
@@ -346,12 +321,27 @@ function ReferAndEarn() {
         </div>
       </div>
       <div className="container-div space-y-10">
-        <Task totalEarnDay={totalEarnDay} />
-        <InfoCard />
+        <Task
+          totalEarnDay={totalEarnDay}
+          socialLink={socialLink}
+          setHref={setHref}
+          setReward={setReward}
+        />
+        <InfoCard /> {/* No props required */}
       </div>
-      <InfoBox />
-      <Bubble />
-      <ReferInfo />
+      <InfoBox /> {/* No props required */}
+      <Bubble
+        dailyClaim={dailyClaim}
+        timerStart={timerStart}
+        setUpdateDailyClaim={setUpdateDailyClaim}
+        setUpdateTimerStart={setUpdateTimerStart}
+        setupdateTimeExpired={setUpdateTimeExpired}
+      />
+      <ReferInfo
+        referralCode={referralCode}
+        referEarn={referEarn}
+        referCount={referCount}
+      />
       <ReferWork />
       <div className="bg-black">
         <Footer />

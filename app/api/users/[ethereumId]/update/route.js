@@ -229,7 +229,6 @@
 //   }
 // };
 
-
 import User from "@/models/UserModel";
 import { connectToDB } from "@/mongodb";
 import { NextResponse } from "next/server";
@@ -243,12 +242,15 @@ export const PATCH = async (req, { params }) => {
     const { ethereumId } = params;
     const body = await req.json();
 
+    console.log(body)
+
     // Destructure incoming data
     const {
       todayClaim = 0,
       totalEarnDay = 0,
       socialLinks = [],
-      referredUsers = [],
+      timerStart = null,
+      timerExpired = true,
     } = body;
 
     // Find the user by ethereumId
@@ -257,39 +259,36 @@ export const PATCH = async (req, { params }) => {
       return new NextResponse("User not found", { status: 404 });
     }
 
-    // Timer logic: Check how much time has passed since the last claim
+    // Check if 24 hours have passed since the last timerStart
     const currentTime = new Date();
-    const timerStart = user.timerStart || new Date(0); // If no timerStart, assume it was a long time ago
-    const elapsedTime = currentTime - new Date(timerStart);
-    const timeRemaining = 24 * 60 * 60 * 1000 - elapsedTime; // 24 hours in ms
+    const previousTimerStart = new Date(user.timerStart);
+    const timeDifference = currentTime - previousTimerStart;
+    const hoursPassed = timeDifference / (1000 * 60 * 60);
 
-    // If 24 hours haven't passed, return the remaining time
-    if (timeRemaining > 0) {
-      return new Response(
-        JSON.stringify({
-          message: "Claim not available yet. Please wait.",
-          timeRemaining, // Return the remaining time to the frontend (in ms)
-        }),
-        { status: 400 }
-      );
-    }
+    // if (hoursPassed < 24) {
+    //   return new NextResponse("You cannot claim again before 24 hours", {
+    //     status: 403,
+    //   });
+    // }
 
-    // If 24 hours have passed, allow claim and update user data
+    // Prepare update data
     const updateData = {
       $set: {
         totalBalance: user.totalBalance + todayClaim + totalEarnDay, // Update total balance
-        timerStart: currentTime, // Restart the timer
+        timerStart: timerStart || new Date(), // Restart the timer (use current time if not provided)
         timerExpired: false, // Reset timerExpired to false
       },
       $inc: {
         todayClaim, // Increment today's claim by the provided value
-        totalEarnDay, // Increment total earn for the day
+        totalEarnDay, // Increment total earnings for the day
       },
     };
 
+    console.log(updateData)
+
     // Update socialLinks if provided
     if (socialLinks.length > 0) {
-      updateData.$addToSet = { socialLinks: { $each: socialLinks } };
+      updateData.$addToSet = { socialLinks: { $each: socialLinks } }; // Add new social links
     }
 
     // Update the user document
@@ -298,6 +297,9 @@ export const PATCH = async (req, { params }) => {
       updateData,
       { new: true }
     );
+
+    // Log the updated user data
+    console.log(updatedUser, "This from UPDATE USER DATA");
 
     // Return updated user data
     return new Response(JSON.stringify(updatedUser), { status: 200 });
