@@ -244,7 +244,7 @@ function TaskList() {
         setIsDisabled((prev) => [...prev, href]);
 
         // After updating the data, allow navigation to the URL
-        window.open(href, "_blank"); // Open the link in a new tab/window
+        window?.open(href, "_blank"); // Open the link in a new tab/window
       } else {
         console.log("Failed to update Social link.");
       }
