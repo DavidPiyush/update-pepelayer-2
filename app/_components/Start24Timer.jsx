@@ -1,43 +1,59 @@
+'use client'
 import { useEffect, useState } from "react";
 
-function Start24Timer() {
-  const [remainingTime, setRemainingTime] = useState(24 * 60 * 60 * 1000); // Initialize with 24 hours in milliseconds
+function Start24Timer({ initialTime }) {
+  const [remainingTime, setRemainingTime] = useState(initialTime);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+
+  // Function to convert milliseconds to readable time format
+  function convertMillisecondsToReadableTime(milliseconds) {
+    const totalSeconds = Math.floor(milliseconds / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const remainingSeconds = totalSeconds % 3600;
+    const minutes = Math.floor(remainingSeconds / 60);
+    const seconds = remainingSeconds % 60;
+
+    return { hours, minutes, seconds };
+  }
 
   useEffect(() => {
-    // Function to start the timer
-    const startTimer = () => {
-      const endTime = Date.now() + remainingTime; // Calculate the end time
+    // Set initial readable time
+    const { hours, minutes, seconds } =
+      convertMillisecondsToReadableTime(remainingTime);
+    setHours(hours);
+    setMinutes(minutes);
+    setSeconds(seconds);
 
-      const timer = setInterval(() => {
-        const timeLeft = endTime - Date.now(); // Calculate remaining time
+    // Timer logic
+    const timerId = setInterval(() => {
+      setRemainingTime((prevTime) => {
+        const newTime = prevTime - 1000; // Decrease by 1 second (1000 milliseconds)
 
-        if (timeLeft <= 0) {
-          clearInterval(timer); // Clear the timer
-          //   console.log("Timer reset! Starting a new 24-hour countdown.");
-          setRemainingTime(24 * 60 * 60 * 1000); // Reset to 24 hours
-        } else {
-          // Update the remaining time state
-          setRemainingTime(timeLeft);
+        // Check if time is up
+        if (newTime <= 0) {
+          clearInterval(timerId); // Clear the timer
+          return 0; // Set remaining time to 0
         }
-      }, 1000); // Update every second
+        return newTime;
+      });
+    }, 1000); // Update every second
 
-      // Cleanup function to clear the interval on unmount
-      return () => clearInterval(timer);
-    };
-
-    const timerId = startTimer(); // Start the timer
-
+    // Cleanup timer on component unmount
     return () => {
-      clearInterval(timerId); // Cleanup on component unmount
+      clearInterval(timerId);
     };
-  }, [remainingTime]);
+  }, []); // Empty dependency array to run only once on mount
 
-  // Convert remaining time to hours, minutes, and seconds for display
-  const hours = Math.floor(
-    (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+  // Update the readable time every second
+  useEffect(() => {
+    const { hours, minutes, seconds } =
+      convertMillisecondsToReadableTime(remainingTime);
+    setHours(hours);
+    setMinutes(minutes);
+    setSeconds(seconds);
+  }, [remainingTime]); // Run this effect when remainingTime changes
 
   return (
     <div>
