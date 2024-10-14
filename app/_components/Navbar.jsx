@@ -8,6 +8,7 @@ import { createUser, userData } from "../_data/FetchAPI";
 import tokenGenerator from "../_utlis/tokenGenerator";
 import { useEffect, useState } from "react";
 import MiniSpinner from "./MiniSpinner";
+import Button from "./Button";
 
 const token = tokenGenerator();
 
