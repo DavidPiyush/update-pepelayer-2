@@ -196,7 +196,7 @@ export const PATCH = async (req, { params }) => {
     // Create the update object
     const updateData = {
       $set: {
-        totalBalance: todayClaim + totalEarnDay + referEarn, // Properly calculate the total balance without `||`
+        totalBalance: todayClaim + totalEarnDay  // Properly calculate the total balance without `||`
       },
       $inc: {
         todayClaim, // Increment by the provided `todayClaim` value
@@ -226,7 +226,5 @@ export const PATCH = async (req, { params }) => {
     return new Response(JSON.stringify(updatedUser), { status: 200 });
   } catch (error) {
     // Handle and log any errors during the update process
-    console.error("Error updating user:", error);
-    return new NextResponse("Failed to update user", { status: 500 });
   }
 };

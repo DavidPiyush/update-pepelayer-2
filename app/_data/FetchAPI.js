@@ -92,23 +92,32 @@ export const updateUser = async (ethereumId, updatedData, setIsLoading) => {
   }
 };
 
-// Example function to set the referral code
-export const setReferralCode = async (referralCode) => {
+export const updateReferredUser = async (code, updatedData, setIsLoading) => {
   try {
-    const response = await fetch('/api/cookie', {
-      method: 'POST',
+    setIsLoading(true);
+    console.log(updatedData);
+
+    const res = await fetch(`/api/referrals/${code}`, {
+      method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ referralCode }), // Send the referral code in the body
+      body: JSON.stringify(updatedData), // Moved `body` outside of `headers`
     });
 
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(data.message || 'Failed to set referral code');
+    if (!res.ok) {
+      throw new Error(`HTTP error! Status: ${res.status}`);
     }
-    console.log(data.message); // Handle success
+
+    const data = await res.json();
+    console.log("User referred successfully:", data);
+
+    // Hide loader after the operation is complete
+    setIsLoading(false);
+
+    return data;
   } catch (error) {
-    console.error('Error setting referral code:', error);
+    setIsLoading(false);
+    console.log("Error while referring the user:", error);
   }
 };

@@ -6,7 +6,6 @@ import generateRandomToken from "../_utlis/tokenGenerator";
 import { handleCopy } from "../_utlis/CopyToClipboard";
 import { Toaster } from "react-hot-toast";
 
-const randomCode = generateRandomToken();
 
 function ReferInfo({ referCode, referUserCount, referBalance }) {
   // const [token ,setToken] = useState([0])
@@ -24,8 +23,8 @@ function ReferInfo({ referCode, referUserCount, referBalance }) {
           type="text"
           id="referralLink"
           class="input"
-          readonly=""
-          value={referLink}
+          readOnly=""
+          defaultValue={referLink}
         />
         <button
           id="copyLinkButton button"

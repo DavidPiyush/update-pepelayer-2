@@ -8,7 +8,7 @@ function ReferWork() {
           <div class="step flex flex-col items-center">
             <video
               src="/refers/pepe-refer-animation.mp4"
-              autoplay=""
+              autoPlay=""
               class="step-image"
               loop=""
             ></video>
@@ -20,7 +20,7 @@ function ReferWork() {
           <div class="step flex flex-col items-center">
             <video
               src="/refers/earnPepe.mp4"
-              autoplay=""
+              autoPlay=""
               class="step-image"
               loop=""
             ></video>
@@ -33,7 +33,7 @@ function ReferWork() {
           <div class="step flex flex-col items-center">
             <video
               src="/refers/pepe-get-rewards.mp4"
-              autoplay=""
+              autoPlay=""
               class="step-image"
               loop=""
             ></video>
