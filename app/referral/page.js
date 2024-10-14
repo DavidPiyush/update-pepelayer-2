@@ -1,10 +1,12 @@
+"use client";
 
-import ReferredUser from "../_components/ReferredUser";
+import { Suspense } from "react";
+import ReferredUser from "./ReferredUserComponent"; // The actual referral page component
 
-function page() {
-  
-
-  return <ReferredUser/>;
+export default function ReferralPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ReferredUser />
+    </Suspense>
+  );
 }
-
-export default page;
