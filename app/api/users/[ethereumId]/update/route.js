@@ -105,6 +105,68 @@
 //   updateData.$addToSet = { socialLinks: { $each: socialLinks } };
 // }
 
+// import User from "@/models/UserModel";
+// import { connectToDB } from "@/mongodb";
+// import { NextResponse } from "next/server";
+
+// export const PATCH = async (req, { params }) => {
+//   try {
+//     // Connect to the database
+//     await connectToDB();
+
+//     // Extract ethereumId from the params and body data from the request
+//     const { ethereumId } = params;
+//     const body = await req.json();
+
+//     console.log(ethereumId, body, "this line 🧍‍♂️🧍‍♂️🧍‍♂️");
+
+//     // Destructure the incoming data with default values to prevent errors
+//     const {
+//       totalBalance = 0,
+//       todayClaim = 0,
+//       totalEarnDay = 0,
+//       referEarn = 0,
+//       socialLinks = [], // Default to an empty array if not provided
+//       referredUsers = [], // Default to an empty array if not provided
+//     } = body;
+
+//     // Create the update object
+//     const updateData = {
+//       $inc: {
+//         todayClaim, // Increment by the provided `todayClaim` value
+//         totalEarnDay, // Increment by the provided `totalEarnDay` value
+//       },
+//       $set: {
+//         totalBalance: todayClaim || 0 + totalEarnDay || 0 + referEarn || 0, // Calculate the total balance
+//       },
+//       // Set timer properties
+//       timerStart: new Date(), // Start the timer
+//       timerExpired: false, // Mark the timer as not expired
+//     };
+
+//     // Update `socialLinks` if new ones are provided without adding duplicates
+//     if (socialLinks.length > 0) {
+//       updateData.$addToSet = { socialLinks: { $each: socialLinks } };
+//     }
+
+//     // Find the user by ethereumId and update the document
+//     const updatedUser = await User.findOneAndUpdate(
+//       { ethereumId: ethereumId },
+//       updateData,
+//       { new: true } // Return the updated document
+//     );
+
+//     // Log the updated data for debugging
+//     console.log(updatedUser, "this updated data");
+
+//     // Return the updated user document in the response
+//     return new Response(JSON.stringify(updatedUser), { status: 200 });
+//   } catch (error) {
+//     // Handle and log any errors during the update process
+//     console.error("Error updating user:", error);
+//     return new NextResponse("Failed to update user", { status: 500 });
+//   }
+// };
 
 import User from "@/models/UserModel";
 import { connectToDB } from "@/mongodb";
@@ -112,52 +174,58 @@ import { NextResponse } from "next/server";
 
 export const PATCH = async (req, { params }) => {
   try {
+    // Connect to the database
     await connectToDB();
+
+    // Extract ethereumId from the params and body data from the request
     const { ethereumId } = params;
     const body = await req.json();
 
     console.log(ethereumId, body, "this line 🧍‍♂️🧍‍♂️🧍‍♂️");
 
+    // Destructure the incoming data with default values
     const {
-      totalBalance,
-      todayClaim,
-      totalEarnDay,
-      referEarn,
-      socialLinks, // Array to be updated without duplicates
-      referredUsers,
-      // Remove timerStart and timerExpired from destructuring since we are managing them in the update
+      totalBalance = 0,
+      todayClaim = 0,
+      totalEarnDay = 0,
+      referEarn = 0,
+      socialLinks = [], // Default to an empty array if not provided
+      referredUsers = [], // Default to an empty array if not provided
     } = body;
 
+    // Create the update object
     const updateData = {
-      $inc: {
-        todayClaim: todayClaim || 0, // Default to 0 if not provided
-        totalEarnDay: totalEarnDay || 0, // Default to 0 if not provided
-      },
       $set: {
-        totalBalance: todayClaim + totalEarnDay + referEarn, // Manually set totalBalance by summing
+        totalBalance: todayClaim + totalEarnDay + referEarn, // Properly calculate the total balance without `||`
       },
-      // Timer fields
+      $inc: {
+        todayClaim, // Increment by the provided `todayClaim` value
+        totalEarnDay, // Increment by the provided `totalEarnDay` value
+      },
+      // Set timer properties
       timerStart: new Date(), // Start the timer
-      timerExpired: false, // Set timer not expired
+      timerExpired: false, // Mark the timer as not expired
     };
 
-    // If `socialLinks` is provided and contains new data
-    if (socialLinks && socialLinks.length > 0) {
-      // Add `socialLinks` without duplicates using `$addToSet`
+    // Update `socialLinks` if new ones are provided without adding duplicates
+    if (socialLinks.length > 0) {
       updateData.$addToSet = { socialLinks: { $each: socialLinks } };
     }
 
-    // Update the user document
+    // Find the user by ethereumId and update the document
     const updatedUser = await User.findOneAndUpdate(
       { ethereumId: ethereumId },
       updateData,
-      { new: true }
+      { new: true } // Return the updated document
     );
 
+    // Log the updated data for debugging
     console.log(updatedUser, "this updated data");
 
+    // Return the updated user document in the response
     return new Response(JSON.stringify(updatedUser), { status: 200 });
   } catch (error) {
+    // Handle and log any errors during the update process
     console.error("Error updating user:", error);
     return new NextResponse("Failed to update user", { status: 500 });
   }

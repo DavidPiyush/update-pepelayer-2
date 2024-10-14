@@ -194,6 +194,7 @@
 
 // export default TaskList;
 
+
 "use client";
 import Link from "next/link";
 import { referDataLink } from "../_data/ReferData";
@@ -204,10 +205,10 @@ import { updateUser, userData } from "../_data/FetchAPI";
 function TaskList() {
   const [loading, setLoading] = useState(true); // State for loading
   const { data: session, status } = useSession();
-  const ethereumId = session?.user?.ethereumId?.toLowerCase(); // Make sure ethereumId is lowercase
-  const [isDisabled, setIsDisabled] = useState([]); // State to hold disabled links
+  const ethereumId = session?.user?.ethereumId?.toLowerCase(); // Ensure ethereumId is lowercase
+  const [isDisabled, setIsDisabled] = useState([]);
 
-  // Fetch social link details for the authenticated user
+  // Fetch user's socialLinks and set the disabled links
   async function getSocialLinkDetails(ethereumId) {
     try {
       const socialRes = await userData(ethereumId, setLoading);
@@ -223,18 +224,10 @@ function TaskList() {
     }
   }, [ethereumId]);
 
-  async function handleClick(e) {
-    e.preventDefault(); // Prevent the default link behavior
-
+  // Handle the click event and update the socialLinks data
+  async function handleClick(e, href, reward) {
+   
     try {
-      const reward = e.target.dataset.reward;
-      const href = e.target.href;
-
-      if (!reward || !href) {
-        // Handle missing reward or link data
-        return;
-      }
-
       // Prepare the update data for the user
       const updateData = {
         socialLinks: [href], // Add the clicked link to socialLinks
@@ -246,6 +239,12 @@ function TaskList() {
 
       if (res) {
         console.log("Social link updated successfully:", res);
+
+        // Update the state to disable the clicked link
+        setIsDisabled((prev) => [...prev, href]);
+
+        // After updating the data, allow navigation to the URL
+        window.open(href, "_blank"); // Open the link in a new tab/window
       } else {
         console.log("Failed to update Social link.");
       }
@@ -254,19 +253,7 @@ function TaskList() {
     }
   }
 
-  // If the user is not authenticated, show a prompt to log in
-  if (status !== "authenticated") {
-    return (
-      <div className="text-center p-4">
-        <p className="text-lg font-bold text-[#ff5722]">
-          Please sign in to access tasks.
-        </p>
-      </div>
-    );
-  }
-
   return referDataLink.map((data) => {
-    // Check if the current link is disabled for the authenticated user
     const isLinkDisabled = isDisabled.includes(data.link);
 
     return (
@@ -274,25 +261,25 @@ function TaskList() {
         className="flex items-center justify-between p-4 rounded-xl shadow-lg transition-all duration-300 ease-in hover:translate-y-[-5px] hover:bg-[#f1f8ff]"
         key={data.title}
       >
-        <Link
-          href={isLinkDisabled ? "#" : data.link} // Disable link if it's in isDisabled
+        <a
+          href={data.link} // Always set the href for the link
           className={`bg-[#ff5722] text-white border-2 py-4 px-4 rounded-lg cursor-pointer text-lg w-[75%] font-bold inline-block transition-all duration-300 ease-in text-center hover:bg-[#f4511e] border-[#f45113] shadow-lg-[#0000004d] hover:scale-105 ${
             isLinkDisabled ? "opacity-[.5] pointer-events-none" : ""
           }`}
           aria-disabled={isLinkDisabled} // Indicate that the link is disabled
           data-reward={data.points}
-          target="_blank"
+          target="_blank" // Ensure the link opens in a new tab
           onClick={(e) => {
-            if (isLinkDisabled) {
-              e.preventDefault(); // Prevent default action if link is disabled
-              console.log("Link is disabled."); // Optional: log message
+            if (!isLinkDisabled) {
+              handleClick(e, data.link, data.points); // Trigger the update and open the link
             } else {
-              handleClick(e); // Call your click handler
+              e.preventDefault(); // Prevent default action if link is disabled
+              console.log("Link is disabled.");
             }
           }}
         >
           {data.title}
-        </Link>
+        </a>
         <span className="text-lg font-bold bg-[#fff3e0] rounded-lg shadow-lg-[#0000001a] p-4 text-[#ff9800]">
           +{data.points} Points
         </span>

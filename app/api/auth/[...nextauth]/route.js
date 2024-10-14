@@ -24,7 +24,7 @@ const handler = NextAuth({
           ethereumId: credentials.address.toLowerCase(),
         });
 
-        // console.log(user, "🚀🚀🚀🚀");
+        console.log(user, "🚀🚀🚀🚀");
 
         if (!user) {
           throw new Error("Invalid user");
