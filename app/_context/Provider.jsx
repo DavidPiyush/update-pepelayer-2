@@ -1,11 +1,4 @@
 "use client";
-
-// import ethereumSvg from "@/public/chain/ethereum.svg";
-// import baseSvg from "@/public/chain/base.svg";
-// import polygonSvg from "@/public/chain/polygon.svg";
-// import arbitrumSvg from "@/public/chain/arbitrum.svg";
-// import optimseSvg from "@/public/chain/optimse.svg";
-// import ethereum from "@/public/chain/etthereum.svg"
 const projectId = process.env.PROJECT_ID;
 // Rainbowkit import
 import "@rainbow-me/rainbowkit/styles.css";

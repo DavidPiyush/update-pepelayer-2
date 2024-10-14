@@ -194,7 +194,6 @@
 
 // export default TaskList;
 
-
 "use client";
 import Link from "next/link";
 import { referDataLink } from "../_data/ReferData";
@@ -226,7 +225,6 @@ function TaskList() {
 
   // Handle the click event and update the socialLinks data
   async function handleClick(e, href, reward) {
-   
     try {
       // Prepare the update data for the user
       const updateData = {
@@ -244,7 +242,9 @@ function TaskList() {
         setIsDisabled((prev) => [...prev, href]);
 
         // After updating the data, allow navigation to the URL
-        window?.open(href, "_blank"); // Open the link in a new tab/window
+        if (typeof window !== "undefined") {
+          window.open(href, "_blank");
+        }
       } else {
         console.log("Failed to update Social link.");
       }
