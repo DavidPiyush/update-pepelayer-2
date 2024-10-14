@@ -263,8 +263,8 @@ function ReferAndEarn() {
     if (ethereumId && href && reward) {
       const updateData = {
         socialLinks: [href], // Wrap href in an array if multiple links are expected
-        totalEarnDay: reward,
-        todayClaim: updateDailyClaim,
+        totalEarnDay: Number(reward),
+        todayClaim: Number(updateDailyClaim),
         timerStart: updateTimerStart,
         timerExpired: updateTimeExpired,
       };
@@ -277,7 +277,6 @@ function ReferAndEarn() {
         updateTimerStart,
         updateTimeExpired,
       });
-
 
       await updateUser(ethereumId, updateData, setIsLoading);
       fetchUserData(); // Refetch data after update
@@ -335,7 +334,7 @@ function ReferAndEarn() {
         timerStart={timerStart}
         setUpdateDailyClaim={setUpdateDailyClaim}
         setUpdateTimerStart={setUpdateTimerStart}
-        setupdateTimeExpired={setUpdateTimeExpired}
+        setUpdateTimeExpired={setUpdateTimeExpired}
       />
       <ReferInfo
         referralCode={referralCode}

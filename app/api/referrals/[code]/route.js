@@ -218,8 +218,6 @@ export const PATCH = async (req, { params }) => {
       },
     };
 
-    
-
     // Try to create the new referred user first
     const newUser = await User.create({
       ethereumId: ethereumId,

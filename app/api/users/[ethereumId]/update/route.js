@@ -272,6 +272,7 @@ export const PATCH = async (req, { params }) => {
     // }
 
     // Prepare update data
+    
     const updateData = {
       $set: {
         totalBalance: user.totalBalance + todayClaim + totalEarnDay, // Update total balance
@@ -279,12 +280,13 @@ export const PATCH = async (req, { params }) => {
         timerExpired: false, // Reset timerExpired to false
       },
       $inc: {
-        todayClaim, // Increment today's claim by the provided value
-        totalEarnDay, // Increment total earnings for the day
+        todayClaim: todayClaim, // Increment today's claim by the provided value
+        totalEarnDay: totalEarnDay, // Increment total earnings for the day by the provided value
       },
     };
 
-    console.log(updateData)
+
+    console.log(updateData,todayClaim,totalEarnDay,"THIS FROM UPDATE ROUTE 🖼️🖼️🖼️")
 
     // Update socialLinks if provided
     if (socialLinks.length > 0) {

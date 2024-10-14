@@ -290,7 +290,7 @@
 //         // If no timer or timer expired, allow claim and reset the timer
 //         setUpdateTimerStart(new Date())
 //         setupdateTimeExpired(false)
-        
+
 //         setRemainingTime(24 * 60 * 60 * 1000); // Reset timer to 24 hours
 //         setTimeExpired(false); // Reset timer expiration state
 //       }
@@ -369,44 +369,20 @@
 import Button from "./Button";
 import "@/app/_styles/style.css";
 import Start24Timer from "./Start24Timer";
-import { useEffect, useState, useCallback } from "react";
-import { updateUser, userData } from "../_data/FetchAPI";
-import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 function Bubble({
+  dailyClaim,
+  timerStart,
   setUpdateTimerStart,
   setUpdateDailyClaim,
-  setupdateTimeExpired,
+  setUpdateTimeExpired,
 }) {
-  const { data: session, status } = useSession();
-  const ethereumId = session?.user?.ethereumId?.toLowerCase(); // Ensure ethereumId is lowercase
-  const [loading, setLoading] = useState(true); // Loading state
-  const [dailyClaim, setDailyClaim] = useState(0); // Daily claim state
   const [remainingTime, setRemainingTime] = useState(null); // Remaining time for the 24-hour timer
-  const [timeExpired, setTimeExpired] = useState(true); // Whether the timer has expired
+  const [timeExpired, setTimeExpired] = useState(true); // State for timer expiration
 
-  // Fetch user data when Ethereum ID is available
-  const fetchUserData = useCallback(async () => {
-    if (!ethereumId) return;
-
-    try {
-      setLoading(true);
-      const res = await userData(ethereumId, setLoading);
-      setDailyClaim(res.todayClaim);
-      handleTimer(res.timerStart); // Process timer logic
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    } finally {
-      setLoading(false);
-    }
-  }, [ethereumId]);
-
-  useEffect(() => {
-    fetchUserData();
-  }, [ethereumId, fetchUserData]);
-
-  // Timer logic to calculate remaining time
-  const handleTimer = (timerStart) => {
+  // Timer logic to calculate remaining time based on `timerStart`
+  const handleTimer = () => {
     if (!timerStart) {
       setRemainingTime(null);
       setTimeExpired(true);
@@ -416,31 +392,29 @@ function Bubble({
     const currentTime = Date.now();
     const timerDuration = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
     const endTime = new Date(timerStart).getTime() + timerDuration;
-    const timeRemaining = Math.max(endTime - currentTime, 0); // Remaining time (0 if timer has expired)
+    const timeRemaining = Math.max(endTime - currentTime, 0); // Calculate remaining time (0 if expired)
 
     setRemainingTime(timeRemaining);
     setTimeExpired(timeRemaining === 0);
   };
 
-  // Handle the claim button click
+  // Call `handleTimer` to calculate remaining time whenever `timerStart` changes
+  useEffect(() => {
+    handleTimer();
+  }, [timerStart]);
+
+  // Handle the claim button click event
   const handleClaimClick = async (e) => {
     e.preventDefault();
-    const reward = e.target.dataset.key || 10000;
+    const reward = e.target.value || 10000; // Set reward, fallback to 10000 if not provided
 
     if (timeExpired) {
       try {
-        const updateData = {
-          todayClaim: reward,
-          timerStart: new Date(), // Reset timer start
-          timerExpired: false,
-        };
-
-        await updateUser(ethereumId, updateData, setLoading);
-        setUpdateDailyClaim(reward); // Update the daily claim
-        setUpdateTimerStart(new Date()); // Reset the timer
-        setupdateTimeExpired(false);
-        handleTimer(new Date()); // Reset the timer logic locally
-
+        // Call the functions passed as props to update the timer and claim states
+        setUpdateDailyClaim(reward); // Update daily claim
+        setUpdateTimerStart(new Date()); // Reset the timer start time
+        setUpdateTimeExpired(false); // Mark timer as not expired
+        handleTimer(); // Reset the timer logic locally
         console.log("Claim successful!");
       } catch (error) {
         console.error("Error updating claim:", error);
@@ -453,7 +427,7 @@ function Bubble({
   return (
     <section className="bg-[#333] p-8 shadow-lg relative overflow-hidden my-24">
       <div className="flex justify-evenly items-center p-5 relative overflow-hidden">
-        {/* Bubbles for visual effect */}
+        {/* Render bubble elements */}
         {[...Array(9).keys()].map((_, idx) => (
           <div key={idx} className={`bubble bubble${idx + 1}`}></div>
         ))}
@@ -464,36 +438,34 @@ function Bubble({
             Complete today&apos;s task
           </p>
 
-          {status === "authenticated" ? (
-            <>
-              <Button
-                id="claimButton"
-                className={`bg-primary-btn-color lg:py-4 lg:px-10 ${
-                  remainingTime > 0 ? "opacity-50 pointer-events-none" : ""
-                }`}
-                onClick={handleClaimClick}
-                value={10000}
-                disabled={remainingTime > 0}
-              >
-                {remainingTime > 0 ? "Claim Not Available" : "Claim Now"}
-              </Button>
+          {/* Conditionally render claim button if timer has expired */}
+          <>
+            <Button
+              id="claimButton"
+              className={`bg-primary-btn-color lg:py-4 lg:px-10 ${
+                remainingTime > 0 ? "opacity-50 pointer-events-none" : ""
+              }`}
+              onClick={handleClaimClick}
+              value={10000}
+              disabled={remainingTime > 0} // Disable the button if there's remaining time
+            >
+              {remainingTime > 0 ? "Claim Not Available" : "Claim Now"}
+            </Button>
 
-              <p id="coins" className="text-white">
-                Coins Earned:{" "}
-                <strong className="text-primary-btn-color">
-                  {dailyClaim || 0} PEPE TODAY!
-                </strong>
-              </p>
+            <p id="coins" className="text-white">
+              Coins Earned:{" "}
+              <strong className="text-primary-btn-color">
+                {dailyClaim || 0} PEPE TODAY!
+              </strong>
+            </p>
 
-              {remainingTime !== null && remainingTime > 0 ? (
-                <Start24Timer initialTime={remainingTime} />
-              ) : (
-                <p className="text-white">No active timer available.</p>
-              )}
-            </>
-          ) : (
-            <p className="text-white">Please sign in to claim rewards.</p>
-          )}
+            {/* Render timer component if there's remaining time */}
+            {remainingTime !== null && remainingTime > 0 ? (
+              <Start24Timer initialTime={remainingTime} />
+            ) : (
+              <p className="text-white">No active timer available.</p>
+            )}
+          </>
         </div>
       </div>
     </section>
